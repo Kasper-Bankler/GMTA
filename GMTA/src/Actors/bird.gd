@@ -12,6 +12,7 @@ const SPEED = 80.0
 const damage = 10
 var goingRight = true
 export var this_health=1
+var playedSound=false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 var player = null
@@ -21,9 +22,12 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	add_to_group("enemies")
-	audioPlayerNoise.play()
+	
 	
 func _physics_process(delta):
+	if !playedSound:
+		playedSound=true
+		audioPlayerNoise.play()
 	if isDead:
 		return
 	if this_health<1:

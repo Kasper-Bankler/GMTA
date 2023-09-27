@@ -82,7 +82,6 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "walk"
-frame = 3
 playing = true
 
 [node name="AudioStreamExplode" type="AudioStreamPlayer" parent="."]
@@ -90,7 +89,7 @@ stream = ExtResource( 37 )
 
 [node name="AudioStreamNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
-volume_db = -25.381
+volume_db = -10.0
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( -0.500001, 5 )
