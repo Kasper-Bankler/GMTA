@@ -6,7 +6,6 @@ onready var audioPlayerDeath = $AudioStreamDeath
 onready var audioPlayerSheep = $AudioStreamSheep
 onready var audioPlayerLamp = $AudioStreamLamp
 export var timerTime = 3
-export var size = 1.0
 export var this_health=1
 
 var isChasing = false
@@ -19,14 +18,13 @@ var rng = RandomNumberGenerator.new()
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 var player = null
-
+var size = scale
 func _ready():
 	anim.play("walk")
 	$Timer.start(timerTime)
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	add_to_group("enemies")
-	scale *= size/2
 
 func _physics_process(delta):
 	if this_health<1:
@@ -39,11 +37,6 @@ func _physics_process(delta):
 	
 	move_and_slide(_velocity, FLOOR_NORMAL)
 
-
-			
-
-
-		
 	
 
 func dead():
@@ -73,12 +66,11 @@ func _on_Timer_timeout():
 	if isDead:
 		return
 	var num = rng.randi_range(0,10)
-
 	if num <2:
 		anim.play("idle")
 		
 		_velocity.x = 0
-		if size < 2:
+		if size.x < 2:
 			audioPlayerLamp.play()
 		else:
 			audioPlayerSheep.play()

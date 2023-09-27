@@ -85,10 +85,10 @@ animation = "walk"
 frame = 3
 playing = true
 
-[node name="AudioExplode" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamExplode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 37 )
 
-[node name="AudioBird" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
 volume_db = -25.381
 

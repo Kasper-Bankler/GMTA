@@ -2,8 +2,8 @@ extends Actor
 
 onready var anim = $AnimatedSprite
 onready var collisionShape = $CollisionShape2D
-onready var audioPlayerExplode = $AudioExplode
-onready var audioPlayerBird = $AudioBird
+onready var audioPlayerExplode = $AudioStreamExplode
+onready var audioPlayerNoise = $AudioStreamNoise
 
 var isChasing = false
 var isDead = false
@@ -21,7 +21,7 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	add_to_group("enemies")
-	audioPlayerBird.play()
+	audioPlayerNoise.play()
 	
 func _physics_process(delta):
 	if isDead:
@@ -61,7 +61,7 @@ func dead():
 		isDead=true
 		scale *= 2
 		audioPlayerExplode.stop()
-		audioPlayerBird.stop()
+		audioPlayerNoise.stop()
 		audioPlayerExplode.play()
 		anim.play("explode")
 

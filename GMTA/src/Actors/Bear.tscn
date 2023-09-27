@@ -103,7 +103,7 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -117,7 +117,7 @@ cast_to = Vector2( 100, 0 )
 [node name="AudioStreamExplode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 54 )
 
-[node name="AudioStreamBear" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 53 )
 
 [node name="UpRayCast" type="RayCast2D" parent="."]

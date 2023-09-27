@@ -1197,14 +1197,12 @@ texture = ExtResource( 22 )
 
 [node name="Sheep" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1256, 784 )
-size = 4.0
 
 [node name="Snake" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1752, 776 )
 
 [node name="Sheep2" parent="." instance=ExtResource( 23 )]
 position = Vector2( 400, 784 )
-size = 4.0
 
 [node name="Bird4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 720, 480 )

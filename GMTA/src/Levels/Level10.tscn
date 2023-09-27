@@ -25,6 +25,7 @@
 [ext_resource path="res://src/Actors/Wolf.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Actors/Bird.tscn" type="PackedScene" id=24]
 
+
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 

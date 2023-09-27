@@ -99,7 +99,7 @@ one_shot = true
 [node name="AudioStreamExplode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )
 
-[node name="AudioStreamSnake" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
 
 [node name="UpRayCast" type="RayCast2D" parent="."]
@@ -116,4 +116,4 @@ cast_to = Vector2( -65, -50 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="finished" from="AudioStreamSnake" to="." method="_on_AudioStreamSnake_finished"]
+[connection signal="finished" from="AudioStreamNoise" to="." method="_on_AudioStreamSnake_finished"]
