@@ -1,5 +1,5 @@
 extends Control
-#ali er sej
+#ali er sej big cap
 
 # Declare member variables here. Examples:
 # var a = 2

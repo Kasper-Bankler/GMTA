@@ -6,6 +6,7 @@ extends AnimatedSprite
 # var b = "text"
 var change=false
 var timer
+var standing=false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer=$Timer
@@ -15,11 +16,12 @@ func _ready():
 
 
 func _on_Timer_timeout():
-
 	if change:
 		play("idle")
+		standing=true
 		timer.start(2)
 	else:
 		timer.start(5)
 		play("walk")
+		standing=false
 	change=!change
