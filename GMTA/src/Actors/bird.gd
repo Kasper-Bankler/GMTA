@@ -26,7 +26,6 @@ func _ready():
 	
 func _physics_process(delta):
 	if !playedSound:
-		playedSound=true
 		audioPlayerNoise.play()
 	if isDead:
 		return
