@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sound_Effects_-_Empty_gun_shot.mp3-50d4a71a193593f7ae6b1e30b65f54f2.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound_Effects_-_Empty_gun_shot.mp3"
+dest_files=[ "res://.import/Sound_Effects_-_Empty_gun_shot.mp3-50d4a71a193593f7ae6b1e30b65f54f2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

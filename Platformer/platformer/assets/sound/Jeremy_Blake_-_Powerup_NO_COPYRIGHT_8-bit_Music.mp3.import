@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jeremy_Blake_-_Powerup_NO_COPYRIGHT_8-bit_Music.mp3-b45792d409bc1083564f6527ebaa8a0d.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Jeremy_Blake_-_Powerup_NO_COPYRIGHT_8-bit_Music.mp3"
+dest_files=[ "res://.import/Jeremy_Blake_-_Powerup_NO_COPYRIGHT_8-bit_Music.mp3-b45792d409bc1083564f6527ebaa8a0d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

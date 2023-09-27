@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gun-shot-1-7069.mp3-6de794fa7af515758f24f2bf2612a1eb.mp3str"
+
+[deps]
+
+source_file="res://assets/gun-shot-1-7069.mp3"
+dest_files=[ "res://.import/gun-shot-1-7069.mp3-6de794fa7af515758f24f2bf2612a1eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Button Hover Sound Effect __ Copyright Free with Download Link __ 251390.mp3-2cb0ea72554ea97c40792a2cba19efe7.mp3str"
+
+[deps]
+
+source_file="res://assets/Button Hover Sound Effect __ Copyright Free with Download Link __ 251390.mp3"
+dest_files=[ "res://.import/Button Hover Sound Effect __ Copyright Free with Download Link __ 251390.mp3-2cb0ea72554ea97c40792a2cba19efe7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

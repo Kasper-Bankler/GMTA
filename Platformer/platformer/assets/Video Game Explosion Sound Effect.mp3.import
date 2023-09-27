@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Video Game Explosion Sound Effect.mp3-eda23043d086b8e2d9a6108c5a06a64f.mp3str"
+
+[deps]
+
+source_file="res://assets/Video Game Explosion Sound Effect.mp3"
+dest_files=[ "res://.import/Video Game Explosion Sound Effect.mp3-eda23043d086b8e2d9a6108c5a06a64f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One_Two_ExterminateMP3.mp3-26c6c7a405cb7a781f4efbe666124250.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/One_Two_ExterminateMP3.mp3"
+dest_files=[ "res://.import/One_Two_ExterminateMP3.mp3-26c6c7a405cb7a781f4efbe666124250.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
