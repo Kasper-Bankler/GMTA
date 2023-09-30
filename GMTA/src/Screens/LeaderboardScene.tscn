@@ -177,6 +177,7 @@ position = Vector2( 68, 11 )
 scale = Vector2( 4.95312, 4.95312 )
 frames = SubResource( 16 )
 animation = "back"
+frame = 1
 playing = true
 
 [node name="backButton2" type="Button" parent="."]
@@ -193,7 +194,6 @@ position = Vector2( 68, 11 )
 scale = Vector2( 4.95312, 4.95312 )
 frames = SubResource( 16 )
 animation = "back"
-frame = 1
 playing = true
 
 [node name="hover" type="AudioStreamPlayer" parent="."]

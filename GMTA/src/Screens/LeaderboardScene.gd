@@ -21,8 +21,8 @@ func _on_backButton_pressed():
 	print("Score persisted successfully: " + str(score_id))
 
 func add_scoreboard_entry():
-	var player_name_label=new_nod
-	player_name_container.
+#	var player_name_label=new_nod
+#	player_name_container.
 
 func _on_backButton2_pressed():
   yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received")
