@@ -986,10 +986,17 @@ text = "Play Again"
 script = ExtResource( 3 )
 next_scene_path = "res://src/Screens/StartMenu.tscn"
 
-[node name="QuitButton" type="Button" parent="Menu"]
+[node name="leaderboard" type="Button" parent="Menu"]
 margin_top = 45.0
 margin_right = 268.0
 margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "leaderboard"
+
+[node name="QuitButton" type="Button" parent="Menu"]
+margin_top = 90.0
+margin_right = 268.0
+margin_bottom = 123.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 script = ExtResource( 4 )
@@ -1031,7 +1038,7 @@ scale = Vector2( 11.6538, 11.6538 )
 z_index = 10
 frames = SubResource( 89 )
 animation = "jump"
-frame = 3
+frame = 2
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1049,4 +1056,5 @@ volume_db = 10.0
 autoplay = true
 
 [connection signal="button_up" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_PlayButton_button_up"]
+[connection signal="pressed" from="Menu/leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="button_up" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_QuitButton_button_up"]

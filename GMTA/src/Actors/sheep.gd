@@ -70,7 +70,8 @@ func _on_Timer_timeout():
 		anim.play("idle")
 		
 		_velocity.x = 0
-		if size.x < 2:
+ 
+		if scale.x < 2:
 			audioPlayerLamp.play()
 		else:
 			audioPlayerSheep.play()
