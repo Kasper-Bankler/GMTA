@@ -20,7 +20,7 @@ func _on_backButton_pressed():
 	var score_id = yield(SilentWolf.Scores.persist_score("Goore",1000),"sw_score_posted")
 	print("Score persisted successfully: " + str(score_id))
 
-func add_scoreboard_entry():
+#func add_scoreboard_entry():
 #	var player_name_label=new_nod
 #	player_name_container.
 
