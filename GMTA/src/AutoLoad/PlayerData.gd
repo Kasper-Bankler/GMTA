@@ -15,7 +15,18 @@ var health: = 100 setget set_health
 var time_elapsed: = 0.0
 var time: = ""
 
+func _ready():
+	
+  SilentWolf.configure({
+	"api_key": "MB0UzF9f4Qa0TSfee7RXF4jhG2FS0FIY4tyawrGk",
+	"game_id": "GMTA",
+	"game_version": "3.5.1",
+	"log_level": 0
+  })
 
+  SilentWolf.configure_scores({
+	"open_scene_on_close": "res://scenes/MainPage.tscn"
+  })
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	time = _format_seconds(time_elapsed,true)
