@@ -30,6 +30,7 @@ config/windows_native_icon="res://assets/icon.png"
 [autoload]
 
 PlayerData="*res://src/AutoLoad/PlayerData.tscn"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 
