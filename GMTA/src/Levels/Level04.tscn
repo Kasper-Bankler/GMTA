@@ -1115,41 +1115,32 @@ autoplay = true
 
 [node name="Snake" parent="." instance=ExtResource( 14 )]
 position = Vector2( 866, 376 )
-timerTime = 2
 this_health = 5
 
 [node name="Snake13" parent="." instance=ExtResource( 14 )]
 position = Vector2( 456, 417 )
-timerTime = 2
 this_health = 4
 
 [node name="Snake3" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1544, 424 )
-timerTime = 2
 
 [node name="Snake10" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1440, 544 )
-timerTime = 2
 
 [node name="Snake11" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1328, 556 )
-timerTime = 2
 
 [node name="Snake6" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1595, 479 )
-timerTime = 2
 
 [node name="Snake4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1598, 410 )
-timerTime = 2
 
 [node name="Snake7" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1604, 469 )
-timerTime = 2
 
 [node name="Snake5" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1618, 480 )
-timerTime = 2
 
 [node name="Snake2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 988, 393 )

@@ -25,7 +25,6 @@
 [ext_resource path="res://Objects/HUD.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Actors/Wolf.tscn" type="PackedScene" id=24]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=83]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 
@@ -1146,19 +1145,15 @@ position = Vector2( 2085, 321 )
 
 [node name="Snake" parent="." instance=ExtResource( 15 )]
 position = Vector2( 104, 808 )
-timerTime = 5
 
 [node name="Bear" parent="." instance=ExtResource( 22 )]
 position = Vector2( 819, 1294 )
-timerTime = 6
 
 [node name="Sheep" parent="." instance=ExtResource( 20 )]
 position = Vector2( 286, 1217 )
-size = 1.9
 
 [node name="Sheep2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 123, 605 )
-size = 3.0
 
 [node name="Wolf" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1440, 854 )

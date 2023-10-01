@@ -1130,6 +1130,7 @@ position = Vector2( 1072, 495 )
 position = Vector2( 1352, 368 )
 
 [node name="Bear5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -18, 426 )
 
 [node name="Coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1248, 488 )
