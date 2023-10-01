@@ -11,7 +11,6 @@ onready var time_button=$HeaderContainer/TimeContainer/time
 onready var death_button=$HeaderContainer/DeathContainer/death
 onready var sheep_button=$HeaderContainer/SheepContainer/sheep
 onready var coins_button=$HeaderContainer/CoinsContainer/coins
-
 onready var player_name_container=$ScrollContainer/HBoxContainer2/player_name
 onready var time_container=$ScrollContainer/HBoxContainer2/time
 onready var death_container=$ScrollContainer/HBoxContainer2/death
@@ -23,6 +22,7 @@ onready var copied_label=$ScrollContainer/HBoxContainer2/time/Label.duplicate()
 onready var copied_player_label=$ScrollContainer/HBoxContainer2/player_name/Label.duplicate()
 var sort_by="none"
 
+var submitted=false
 var metadata
 var leaderboard_data
 var array
@@ -51,6 +51,7 @@ var sorter=MyCustomSorter.new()
 	
 
 func _ready():
+	$AcceptDialog.popup()
 	metadata={
 		"sheep":PlayerData.sheep_deaths,
 		"time":stepify(PlayerData.time_elapsed, 0.01),
@@ -68,7 +69,7 @@ func update_leaderboard():
 	player_name_container.add_child(new_player_label("Loading..."))
 	yield(SilentWolf.Scores.get_high_scores(0), "sw_scores_received")
 	array=SilentWolf.Scores.scores
-	print(array)
+
 	clear_leaderboard()
 	if sort_by=="none":
 		populate_leaderboard(array)
@@ -104,45 +105,38 @@ func populate_leaderboard(arr):
 func _on_backButton_pressed():
 	get_tree().change_scene("res://src/Screens/EndScreen.tscn")
 	
-		
-	
+
 func clear_leaderboard():
 	for container in scores_container.get_children():
-
 		for n in container.get_children():
-
 			container.remove_child(n)
 			n.queue_free()
-#
+
 
 func add_record():
+	if submitted:
+		$AcceptDialog.popup()
+		return
 	SilentWolf.Scores.persist_score(text_field.text,PlayerData.score,"main",metadata)
-	
+	submitted=true
 
-func _on_test_pressed():
+func _on_refresh_pressed():
 	update_leaderboard()
-	
-	
-func _on_backButton2_pressed():
-  yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received")
-  print("Scores: " + str(SilentWolf.Scores.scores))
 
 
 func _on_Submit_run_pressed():
 	pop_up.popup()
-	for row in SilentWolf.Scores.scores:
-		print(row)
+
 
 
 func _on_PlayerNameButtonOk_pressed():
 	pop_up.hide()
 	add_record()
 
+
 func clear_db_DO_NOT_USE_IF_NOOB():
 	SilentWolf.Scores.wipe_leaderboard()
 
-func _on_TextEdit_text_changed():
-	print(text_field.text)
 
 func sort_leaderboard(sort_method):
 	if sort_by==sort_method:
@@ -151,23 +145,27 @@ func sort_leaderboard(sort_method):
 		sort_by=sort_method
 		array.sort_custom(sorter,sort_by)
 	refresh_leaderboard()
-	
+
+
 func _on_time_pressed():
 	sort_leaderboard("time")
 
 
 func _on_death_pressed():
 	sort_leaderboard("death")
-	
-
 
 
 func _on_coins_pressed():
 	sort_leaderboard("coins")
-	
+
+
 
 func _on_sheep_pressed():
 	sort_leaderboard("sheep")
+
+
+
+
 
 
 

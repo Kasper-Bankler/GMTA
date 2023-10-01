@@ -1079,22 +1079,6 @@ animation = "back"
 frame = 1
 playing = true
 
-[node name="backButton2" type="Button" parent="."]
-margin_left = 412.0
-margin_top = 290.0
-margin_right = 549.0
-margin_bottom = 333.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="back" type="AnimatedSprite" parent="backButton2"]
-position = Vector2( 68, 11 )
-scale = Vector2( 4.95312, 4.95312 )
-frames = SubResource( 16 )
-animation = "back"
-playing = true
-
 [node name="hover" type="AudioStreamPlayer" parent="."]
 pause_mode = 1
 stream = ExtResource( 2 )
@@ -1332,7 +1316,7 @@ margin_bottom = 511.0
 custom_fonts/font = SubResource( 83 )
 text = "submit run"
 
-[node name="test" type="Button" parent="."]
+[node name="refresh" type="Button" parent="."]
 margin_left = 865.0
 margin_top = 137.0
 margin_right = 1013.0
@@ -1388,12 +1372,20 @@ size_flags_vertical = 6
 custom_fonts/font = SubResource( 83 )
 text = "OK"
 
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 370.0
+margin_top = 222.0
+margin_right = 680.0
+margin_bottom = 349.0
+theme = ExtResource( 16 )
+dialog_text = "ALREADY SUBMITTED RUN"
+
 [connection signal="pressed" from="backButton" to="." method="_on_backButton_pressed"]
-[connection signal="pressed" from="backButton2" to="." method="_on_backButton2_pressed"]
 [connection signal="pressed" from="HeaderContainer/TimeContainer/time" to="." method="_on_time_pressed"]
 [connection signal="pressed" from="HeaderContainer/DeathContainer/death" to="." method="_on_death_pressed"]
 [connection signal="pressed" from="HeaderContainer/CoinsContainer/coins" to="." method="_on_coins_pressed"]
 [connection signal="pressed" from="HeaderContainer/SheepContainer/sheep" to="." method="_on_sheep_pressed"]
 [connection signal="pressed" from="Submit run" to="." method="_on_Submit_run_pressed"]
-[connection signal="pressed" from="test" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="PopupDialog/VBoxContainer/PlayerNameButtonOk" to="." method="_on_PlayerNameButtonOk_pressed"]
