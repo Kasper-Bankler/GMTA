@@ -21,10 +21,34 @@ onready var scores_container=$ScrollContainer/HBoxContainer2
 
 onready var copied_label=$ScrollContainer/HBoxContainer2/time/Label.duplicate()
 onready var copied_player_label=$ScrollContainer/HBoxContainer2/player_name/Label.duplicate()
-var sort_by
+var sort_by="none"
 
 var metadata
 var leaderboard_data
+
+
+class MyCustomSorter:
+	var this_position:Vector2
+	func sort_time(a, b):
+		if a.metadata.time<b.metadata.time:
+			return true
+		return false
+	func sort_deaths(a, b):
+		if a.metadata.deaths<b.metadata.deaths:
+			return true
+		return false
+	func sort_sheep(a, b):
+		if a.metadata.sheep<b.metadata.sheep:
+			return true
+		return false
+		
+	func sort_coins(a, b):
+		if a.score<b.score:
+			return true
+		return false
+		
+var sorter=MyCustomSorter.new()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	metadata={
@@ -40,9 +64,24 @@ func _ready():
 #	pas
 func refresh_leaderboard():
 	clear_leaderboard()
+	player_name_container.add_child(new_player_label("Loading..."))
 	yield(SilentWolf.Scores.get_high_scores(0), "sw_scores_received")
-	
-	populate_leaderboard(SilentWolf.Scores.scores)
+	clear_leaderboard()
+	if sort_by=="none":
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(SilentWolf.Scores.scores)
+		return
 
 func new_label(text):
 	var new_label=copied_label.duplicate()

@@ -1076,7 +1076,6 @@ position = Vector2( 68, 11 )
 scale = Vector2( 4.95312, 4.95312 )
 frames = SubResource( 16 )
 animation = "back"
-frame = 1
 playing = true
 
 [node name="backButton2" type="Button" parent="."]
@@ -1093,6 +1092,7 @@ position = Vector2( 68, 11 )
 scale = Vector2( 4.95312, 4.95312 )
 frames = SubResource( 16 )
 animation = "back"
+frame = 1
 playing = true
 
 [node name="hover" type="AudioStreamPlayer" parent="."]
@@ -1232,19 +1232,19 @@ tile_data = PoolIntArray( 458750, 4, 0, 458751, 6, 0, 393216, 2, 0, 393217, 4, 0
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_left = 150.0
 margin_top = 192.0
-margin_right = 941.0
-margin_bottom = 421.0
+margin_right = 850.0
+margin_bottom = 414.0
 scroll_horizontal_enabled = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 700.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 700, 0 )
 theme = ExtResource( 16 )
 
 [node name="player_name" type="VBoxContainer" parent="ScrollContainer/HBoxContainer2"]
 margin_right = 308.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 theme = ExtResource( 16 )
@@ -1260,34 +1260,10 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer2/player_name"]
-margin_top = 54.0
-margin_right = 308.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_vertical = 0
-theme = ExtResource( 16 )
-text = "ikhfasdfkljasdjkhjkfsd"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer2/player_name"]
-margin_top = 108.0
-margin_right = 308.0
-margin_bottom = 158.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_vertical = 0
-theme = ExtResource( 16 )
-text = "ikhfasdfkljasdjkhjkfsd"
-align = 1
-valign = 1
-uppercase = true
-
 [node name="time" type="VBoxContainer" parent="ScrollContainer/HBoxContainer2"]
 margin_left = 312.0
 margin_right = 463.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
@@ -1304,7 +1280,7 @@ uppercase = true
 [node name="deaths" type="VBoxContainer" parent="ScrollContainer/HBoxContainer2"]
 margin_left = 467.0
 margin_right = 542.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 grow_horizontal = 0
 
 [node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer2/deaths"]
@@ -1320,7 +1296,7 @@ uppercase = true
 [node name="score" type="VBoxContainer" parent="ScrollContainer/HBoxContainer2"]
 margin_left = 546.0
 margin_right = 621.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 grow_horizontal = 0
 theme = ExtResource( 16 )
 
@@ -1336,7 +1312,7 @@ uppercase = true
 [node name="sheep" type="VBoxContainer" parent="ScrollContainer/HBoxContainer2"]
 margin_left = 625.0
 margin_right = 700.0
-margin_bottom = 158.0
+margin_bottom = 50.0
 grow_horizontal = 0
 
 [node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer2/sheep"]
