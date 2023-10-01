@@ -7,6 +7,8 @@ var speed=1500
 var finished_playing=false
 var hit_wall=false
 func _ready():
+	if facing==-1:
+		animated_sprite.flip_h=true
 	audio_player.play()
 	animated_sprite.play("default")
 	

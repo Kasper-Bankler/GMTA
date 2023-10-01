@@ -1181,9 +1181,21 @@ position = Vector2( 977, 488 )
 
 [node name="Bear" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1064, 64 )
+speed = null
+gravity = null
+timerTime = null
+this_health = null
+damage = null
+SPEED = null
 
 [node name="Bear2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1280, 40 )
+speed = null
+gravity = null
+timerTime = null
+this_health = null
+damage = null
+SPEED = null
 
 [node name="Coin3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1864, 459 )

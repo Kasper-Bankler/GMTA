@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/HUD.gd" type="Script" id=1]
-[ext_resource path="res://assets/single coin.png" type="Texture" id=2]
+[ext_resource path="res://assets/MonedaD.png" type="Texture" id=2]
 [ext_resource path="res://assets/font_default.tres" type="DynamicFont" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -15,6 +43,14 @@ margin_bottom = 31.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
-[node name="Coin" type="Sprite" parent="ScoreLabel"]
-position = Vector2( -16, 16 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ScoreLabel"]
+position = Vector2( -17, 16 )
+scale = Vector2( 1.25, 1.25 )
+frames = SubResource( 6 )
+frame = 3
+
+[node name="Timer" type="Timer" parent="ScoreLabel"]
+wait_time = 1.5
+
+[connection signal="animation_finished" from="ScoreLabel/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="ScoreLabel/Timer" to="." method="_on_Timer_timeout"]
