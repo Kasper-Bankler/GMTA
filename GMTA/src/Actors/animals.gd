@@ -16,7 +16,7 @@ onready var audioPlayerNoise = $AudioStreamNoise
 
 export var this_health=7
 export var damage=30
-export var SPEED = 20
+export var SPEED=40 
 
 var FrontRay = Vector2(100,0)
 var FrontUpRay = Vector2(70,-50)
@@ -25,7 +25,8 @@ var BackUpRay = Vector2(-45,-35)
 
 var isChasing = false
 var isDead = false
-var dir = 1
+var dir = 1.0
+
 var goingRight = true 
 var player = null
 

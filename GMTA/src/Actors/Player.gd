@@ -1,5 +1,7 @@
 extends Actor
 
+
+
 signal coinCollected
 onready var death_scene = preload("res://src/Screens/DeathScreen.tscn")
 onready var bullet_scene = preload("res://Objects/Bullet.tscn")
@@ -216,6 +218,6 @@ func _on_RocketTimer_timeout():
 func die():
 	PlayerData.deaths += 1
 	PlayerData.score = 0
-
-	get_tree().change_scene_to(death_scene)
 	PlayerData.health = 100
+	get_tree().change_scene_to(death_scene)
+	

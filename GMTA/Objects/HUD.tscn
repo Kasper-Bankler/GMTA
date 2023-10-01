@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Objects/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/MonedaD.png" type="Texture" id=2]
-[ext_resource path="res://assets/font_default.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/new_theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=7]
+size = 31
+font_data = ExtResource( 3 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -38,19 +43,30 @@ script = ExtResource( 1 )
 [node name="ScoreLabel" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_bottom = 31.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = -73.0
+margin_top = 29.0
+margin_right = -33.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
+align = 1
+valign = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ScoreLabel"]
-position = Vector2( -17, 16 )
-scale = Vector2( 1.25, 1.25 )
+position = Vector2( -15, 16 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
 frame = 3
 
 [node name="Timer" type="Timer" parent="ScoreLabel"]
-wait_time = 1.5
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 434.0
+margin_top = 18.0
+margin_right = 540.0
+margin_bottom = 64.0
 
 [connection signal="animation_finished" from="ScoreLabel/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="ScoreLabel/Timer" to="." method="_on_Timer_timeout"]

@@ -1121,45 +1121,25 @@ autoplay = true
 position = Vector2( 784, 495 )
 speed = null
 gravity = null
-timerTime = null
-this_health = null
-damage = null
-SPEED = null
+SPEED = 50
 
 [node name="Bear2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 496 )
 speed = null
 gravity = null
-timerTime = null
-this_health = null
-damage = null
-SPEED = null
 
 [node name="Bear3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1072, 495 )
 speed = null
 gravity = null
-timerTime = null
-this_health = null
-damage = null
-SPEED = null
 
 [node name="Bear4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1352, 368 )
 speed = null
 gravity = null
-timerTime = null
-this_health = null
-damage = null
-SPEED = null
 
 [node name="Bear5" parent="." instance=ExtResource( 3 )]
 speed = null
-gravity = null
-timerTime = null
-this_health = null
-damage = null
-SPEED = null
 
 [node name="Coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1248, 488 )

@@ -6,6 +6,7 @@ var facing=-1
 var speed=1500
 var finished_playing=false
 var hit_wall=false
+var hit=false
 func _ready():
 	if facing==-1:
 		animated_sprite.flip_h=true
@@ -37,7 +38,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _on_Bullet_body_entered(body):
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and !hit:
+		hit=true
 		body.take_damage(1)
 		$CollisionShape2D.queue_free()
 	
