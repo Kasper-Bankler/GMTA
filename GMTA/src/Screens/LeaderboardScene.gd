@@ -51,7 +51,6 @@ var sorter=MyCustomSorter.new()
 	
 
 func _ready():
-	$AcceptDialog.popup()
 	metadata={
 		"sheep":PlayerData.sheep_deaths,
 		"time":stepify(PlayerData.time_elapsed, 0.01),

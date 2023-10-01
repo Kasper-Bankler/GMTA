@@ -19,6 +19,7 @@ var on_ladder := false
 var climb_speed = Vector2(0.0, 300.0)
 var bullet=null
 var rocket_mode=false
+var isDead=false
 var b
 
 

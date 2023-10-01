@@ -26,22 +26,19 @@ func _ready():
 	explosion_area.queue_free()
 	initial_hit=false
 	gun_shot.play()
-
 	player=get_tree().get_nodes_in_group("player")[0]
 	current_velocity=max_speed*Vector2(facing,0).rotated(rotation)*2
 	animated_sprite.play("default")
 
 
 func _physics_process(delta: float) -> void:
-
-	
-	if (!is_instance_valid(missile_target)):
-		initial_hit=true
-		explode()
-	elif (initial_hit):
+	if (initial_hit):
 		return
 
-	elif (missile_target):
+	if (missile_target.isDead):
+		explode()
+		return
+	if (missile_target):
 		var dir = global_position.direction_to(missile_target.global_position)
 		var desired_velocity = dir * max_speed
 		var change = (desired_velocity-current_velocity)* drag_factor
@@ -64,9 +61,8 @@ func _on_gunshot_finished():
 
 func explode():
 	initial_hit=true
-
-	explosion_parent.add_child(new_explosion_area)
-
+	if (explosion_parent.get_child_count()==0):
+		explosion_parent.add_child(new_explosion_area)
 	animated_sprite.play("explode")
 	gun_shot.stop()
 	explosion_audio.play()

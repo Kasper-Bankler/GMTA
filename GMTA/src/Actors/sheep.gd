@@ -34,7 +34,6 @@ func _physics_process(delta):
 		return
 	elif not is_on_floor():
 		_velocity.y += 90 * delta
-	
 	move_and_slide(_velocity, FLOOR_NORMAL)
 
 	
