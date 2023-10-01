@@ -33,7 +33,7 @@ class MyCustomSorter:
 		if a.metadata.time<b.metadata.time:
 			return true
 		return false
-	func deaths(a, b):
+	func death(a, b):
 		if a.metadata.deaths<b.metadata.deaths:
 			return true
 		return false
@@ -43,7 +43,7 @@ class MyCustomSorter:
 		return false
 		
 	func coins(a, b):
-		if a.score<b.score:
+		if a.score>b.score:
 			return true
 		return false
 		
