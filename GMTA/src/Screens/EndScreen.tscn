@@ -1038,7 +1038,7 @@ scale = Vector2( 11.6538, 11.6538 )
 z_index = 10
 frames = SubResource( 89 )
 animation = "jump"
-frame = 2
+frame = 5
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]

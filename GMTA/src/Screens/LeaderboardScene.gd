@@ -25,64 +25,58 @@ var sort_by="none"
 
 var metadata
 var leaderboard_data
-
+var array
 
 class MyCustomSorter:
 	var this_position:Vector2
-	func sort_time(a, b):
+	func time(a, b):
 		if a.metadata.time<b.metadata.time:
 			return true
 		return false
-	func sort_deaths(a, b):
+	func deaths(a, b):
 		if a.metadata.deaths<b.metadata.deaths:
 			return true
 		return false
-	func sort_sheep(a, b):
+	func sheep(a, b):
 		if a.metadata.sheep<b.metadata.sheep:
 			return true
 		return false
 		
-	func sort_coins(a, b):
+	func coins(a, b):
 		if a.score<b.score:
 			return true
 		return false
 		
 var sorter=MyCustomSorter.new()
 	
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	metadata={
 		"sheep":PlayerData.sheep_deaths,
 		"time":stepify(PlayerData.time_elapsed, 0.01),
 		"deaths":PlayerData.deaths
 	}
-	refresh_leaderboard()
+	update_leaderboard()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pas
 func refresh_leaderboard():
+	clear_leaderboard()
+	populate_leaderboard(array)
+	
+func update_leaderboard():
 	clear_leaderboard()
 	player_name_container.add_child(new_player_label("Loading..."))
 	yield(SilentWolf.Scores.get_high_scores(0), "sw_scores_received")
+	array=SilentWolf.Scores.scores
+	print(array)
 	clear_leaderboard()
 	if sort_by=="none":
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
-		populate_leaderboard(SilentWolf.Scores.scores)
+		populate_leaderboard(array)
 		return
-
+	array.sort_custom(sorter,sort_by)
+	populate_leaderboard(array)
+	
+	
 func new_label(text):
 	var new_label=copied_label.duplicate()
 
@@ -126,7 +120,7 @@ func add_record():
 	
 
 func _on_test_pressed():
-	refresh_leaderboard()
+	update_leaderboard()
 	
 	
 func _on_backButton2_pressed():
@@ -144,29 +138,36 @@ func _on_PlayerNameButtonOk_pressed():
 	pop_up.hide()
 	add_record()
 
-func clear_db():
+func clear_db_DO_NOT_USE_IF_NOOB():
 	SilentWolf.Scores.wipe_leaderboard()
 
 func _on_TextEdit_text_changed():
 	print(text_field.text)
 
-
+func sort_leaderboard(sort_method):
+	if sort_by==sort_method:
+		array.invert()
+	else:
+		sort_by=sort_method
+		array.sort_custom(sorter,sort_by)
+	refresh_leaderboard()
+	
 func _on_time_pressed():
-	sort_by="time"
+	sort_leaderboard("time")
 
 
 func _on_death_pressed():
-	sort_by="death"
+	sort_leaderboard("death")
 	
 
 
 
 func _on_coins_pressed():
-	sort_by="coins"
+	sort_leaderboard("coins")
 	
 
 func _on_sheep_pressed():
-	sort_by="sheep"
+	sort_leaderboard("sheep")
 
 
 

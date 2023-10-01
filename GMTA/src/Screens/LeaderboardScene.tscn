@@ -1328,17 +1328,17 @@ uppercase = true
 margin_left = 380.0
 margin_top = 464.0
 margin_right = 630.0
-margin_bottom = 497.0
+margin_bottom = 511.0
 custom_fonts/font = SubResource( 83 )
 text = "submit run"
 
 [node name="test" type="Button" parent="."]
-margin_left = 700.0
-margin_top = 446.0
-margin_right = 950.0
-margin_bottom = 479.0
+margin_left = 865.0
+margin_top = 137.0
+margin_right = 1013.0
+margin_bottom = 170.0
 custom_fonts/font = SubResource( 83 )
-text = "test"
+text = "refresh"
 
 [node name="PopupDialog" type="PopupDialog" parent="."]
 margin_left = 295.0
