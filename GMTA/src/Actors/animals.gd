@@ -1,4 +1,5 @@
 extends Actor 
+class_name Animals
 
 onready var anim = $AnimatedSprite
 onready var Rray = $RightRayCast
@@ -6,13 +7,21 @@ onready var RUray = $RightUpRayCast
 onready var Lray = $LeftRayCast
 onready var LUray = $LeftUpRayCast
 onready var Uray = $UpRayCast
+onready var platformRay = $platformRayCast
 onready var collisionShape = $CollisionShape2D
 onready var audioPlayerExplode = $AudioStreamExplode
-onready var audioPlayerNoise = $AudioStreamNoise	
-export var timerTime = 3
+onready var audioPlayerNoise = $AudioStreamNoise
+
+
+
 export var this_health=7
 export var damage=30
 export var SPEED = 20
+
+var FrontRay = Vector2(100,0)
+var FrontUpRay = Vector2(70,-50)
+var BackRay = Vector2(-50,0)
+var BackUpRay = Vector2(-45,-35)
 
 var isChasing = false
 var isDead = false
@@ -21,45 +30,26 @@ var goingRight = true
 var player = null
 
 func _ready():
-	$Timer.start(timerTime)
-	player = get_tree().get_nodes_in_group("player")[0]
-	assert(player!=null)
-	.add_to_group("enemies")
-
-func _physics_process(delta):
-	if this_health<1:
-		dead()
-		isDead=true
-	if isDead:
-		return
-	
-	detection()
-	
-	if isChasing and is_on_floor():
-		chase()
-	if not is_on_floor():
-		_velocity.y += 90 * delta
-	
-	move_and_slide(_velocity, FLOOR_NORMAL)
-
+	_velocity.x = SPEED * dir
 
 func detection():
 	if Rray.is_colliding() and Rray.get_collider() == player:
 		isChasing = true
-		$Timer.stop()
+
 	elif RUray.is_colliding() and RUray.get_collider() == player:
 		isChasing=true
-		$Timer.stop()
+	
 	elif Lray.is_colliding() and Lray.get_collider() == player:
 		isChasing=true
-		$Timer.stop()
+	
 	elif LUray.is_colliding() and LUray.get_collider() == player:
 		isChasing=true
-		$Timer.stop()
+
 	elif Uray.is_colliding() and Uray.get_collider() == player:
 		isChasing=true
-		$Timer.stop()
-			
+	
+
+
 
 
 func chase():
@@ -109,6 +99,30 @@ func _on_AnimatedSprite_animation_finished():
 	if (anim.animation=="explode"):
 		queue_free()
 
+func walk():
+	if !platformRay.is_colliding() and is_on_floor() or is_on_wall():
+		if goingRight:
+			dir = 1
+			anim.flip_h = false
+			Rray.cast_to = Vector2(100,0)
+			RUray.cast_to = Vector2(70,-50)
+			Lray.cast_to = Vector2(-50,0)
+			LUray.cast_to = Vector2(-45,-35)
+			platformRay.position.x = 20
+			_velocity.x = SPEED * dir
+			anim.play("walk")
+			goingRight = false
+		elif !goingRight:
+			dir = -1
+			_velocity.x = SPEED * dir
+			anim.flip_h = true
+			Rray.cast_to = Vector2(50,0)
+			RUray.cast_to = Vector2(45,-35)
+			Lray.cast_to = Vector2(-100,0)
+			LUray.cast_to = Vector2(-70,-50)
+			platformRay.position.x = -20
+			anim.play("walk")
+			goingRight = true
 
 
 func _on_Timer_timeout():
@@ -117,22 +131,20 @@ func _on_Timer_timeout():
 	if goingRight:
 		dir = 1
 		anim.flip_h = false
-		Rray.cast_to = Vector2(100,0)
-		RUray.cast_to = Vector2(70,-50)
-		Lray.cast_to = Vector2(-50,0)
-		LUray.cast_to = Vector2(-45,-35)
+		Rray.cast_to = FrontRay
+		RUray.cast_to = FrontUpRay
+		Lray.cast_to = BackRay
+		LUray.cast_to = BackUpRay
 		_velocity.x = SPEED * dir
 		anim.play("walk")
 		goingRight = false
-		$Timer.start(timerTime)
 	elif goingRight == false:
 		dir = -1
 		_velocity.x = SPEED * dir
 		anim.flip_h = true
-		Rray.cast_to = Vector2(50,0)
-		RUray.cast_to = Vector2(45,-35)
-		Lray.cast_to = Vector2(-100,0)
-		LUray.cast_to = Vector2(-70,-50)
+		Rray.cast_to = BackRay
+		RUray.cast_to = Vector2(-FrontUpRay.x,FrontUpRay.y)
+		Lray.cast_to = FrontRay
+		LUray.cast_to = Vector2(-BackUpRay.x,BackUpRay.y)
 		anim.play("walk")
 		goingRight = true
-		$Timer.start(timerTime)

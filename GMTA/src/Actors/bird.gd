@@ -22,6 +22,7 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	add_to_group("enemies")
+	audioPlayerNoise.play()
 	
 	
 func _physics_process(delta):
@@ -33,6 +34,7 @@ func _physics_process(delta):
 		dead()
 		return
 	chase()
+	_velocity.y *= 2
 	move_and_slide(_velocity, FLOOR_NORMAL)
 
 

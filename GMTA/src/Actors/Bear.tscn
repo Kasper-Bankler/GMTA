@@ -103,12 +103,8 @@ shape = SubResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "walk"
-frame = 3
+frame = 1
 playing = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
 
 [node name="RightRayCast" type="RayCast2D" parent="."]
 enabled = true
@@ -132,5 +128,11 @@ cast_to = Vector2( 65, -50 )
 enabled = true
 cast_to = Vector2( -65, -50 )
 
+[node name="platformRayCast" type="RayCast2D" parent="."]
+position = Vector2( 20, 5 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 9
+collide_with_areas = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

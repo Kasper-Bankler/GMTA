@@ -1,13 +1,12 @@
-extends "res://src/Actors/animals.gd"
+extends Animals
 
 
 
 func _ready():
-	#Starter timer men bliver fjenet sene
-	$Timer.start(timerTime)
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	.add_to_group("enemies")
+	this_health=7
 
 func _physics_process(delta):
 	if this_health<1:
@@ -17,6 +16,7 @@ func _physics_process(delta):
 		return
 	
 	detection()
+	walk()
 	
 	if isChasing and is_on_floor():
 		chase()
