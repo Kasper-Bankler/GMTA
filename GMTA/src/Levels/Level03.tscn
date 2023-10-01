@@ -1117,6 +1117,7 @@ tile_data = PoolIntArray( 721158, 536870916, 0, 721184, 536870916, 0, 786684, 53
 stream = ExtResource( 22 )
 autoplay = true
 
+<<<<<<< Updated upstream
 [node name="Bear" parent="." instance=ExtResource( 3 )]
 position = Vector2( 784, 495 )
 speed = null
@@ -1140,6 +1141,10 @@ gravity = null
 
 [node name="Bear5" parent="." instance=ExtResource( 3 )]
 speed = null
+=======
+[node name="Bear5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 18, 432 )
+>>>>>>> Stashed changes
 
 [node name="Coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1248, 488 )

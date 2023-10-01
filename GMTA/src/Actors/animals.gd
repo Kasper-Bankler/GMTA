@@ -7,13 +7,21 @@ onready var RUray = $RightUpRayCast
 onready var Lray = $LeftRayCast
 onready var LUray = $LeftUpRayCast
 onready var Uray = $UpRayCast
+<<<<<<< Updated upstream
 onready var platformRay = $platformRayCast
+=======
+onready var platformRay = $platformRay
+>>>>>>> Stashed changes
 onready var collisionShape = $CollisionShape2D
 onready var audioPlayerExplode = $AudioStreamExplode
 onready var audioPlayerNoise = $AudioStreamNoise
 
 
+<<<<<<< Updated upstream
 
+=======
+export var timerTime = 3
+>>>>>>> Stashed changes
 export var this_health=7
 export var damage=30
 export var SPEED=40 
@@ -23,6 +31,7 @@ var FrontUpRay = Vector2(70,-50)
 var BackRay = Vector2(-50,0)
 var BackUpRay = Vector2(-45,-35)
 
+
 var isChasing = false
 var isDead = false
 var dir = 1.0
@@ -31,7 +40,17 @@ var goingRight = true
 var player = null
 
 func _ready():
+<<<<<<< Updated upstream
 	_velocity.x = SPEED * dir
+=======
+	#$Timer.start(timerTime)
+	player = get_tree().get_nodes_in_group("player")[0]
+	assert(player!=null)
+	_velocity.x= SPEED * dir
+	.add_to_group("enemies")
+
+
+>>>>>>> Stashed changes
 
 func detection():
 	if Rray.is_colliding() and Rray.get_collider() == player:
@@ -48,6 +67,10 @@ func detection():
 
 	elif Uray.is_colliding() and Uray.get_collider() == player:
 		isChasing=true
+<<<<<<< Updated upstream
+=======
+		$Timer.stop()
+>>>>>>> Stashed changes
 	
 
 

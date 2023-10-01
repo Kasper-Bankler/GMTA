@@ -3,6 +3,11 @@ extends Animals
 
 
 func _ready():
+<<<<<<< Updated upstream
+=======
+	#Starter timer men bliver fjenet sene
+	#$Timer.start(timerTime)
+>>>>>>> Stashed changes
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	.add_to_group("enemies")
@@ -16,6 +21,10 @@ func _physics_process(delta):
 		return
 	
 	detection()
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	walk()
 	
 	if isChasing and is_on_floor():

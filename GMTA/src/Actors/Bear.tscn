@@ -127,10 +127,18 @@ cast_to = Vector2( 65, -50 )
 enabled = true
 cast_to = Vector2( -65, -50 )
 
+<<<<<<< Updated upstream
 [node name="platformRayCast" type="RayCast2D" parent="."]
 position = Vector2( 20, 5 )
 enabled = true
 cast_to = Vector2( 0, 20 )
+=======
+[node name="platformRay" type="RayCast2D" parent="."]
+position = Vector2( 20, 5 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 19 )
+>>>>>>> Stashed changes
 collision_mask = 9
 collide_with_areas = true
 
