@@ -4,9 +4,12 @@ extends Area2D
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 export var next_scene: PackedScene
+export var last_portal_bool=false
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		if last_portal_bool:
+			PlayerData.run_time=PlayerData.time_elapsed
 		teleport()
 
 
