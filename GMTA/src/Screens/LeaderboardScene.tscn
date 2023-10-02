@@ -1048,10 +1048,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Label2"]
-margin_left = 98.0
-margin_top = 3.0
-margin_right = 715.0
-margin_bottom = 171.0
+margin_left = 96.0
+margin_top = 1.0
+margin_right = 713.0
+margin_bottom = 169.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
@@ -1332,15 +1332,16 @@ margin_bottom = 497.0
 custom_fonts/font = SubResource( 83 )
 text = "submit run"
 
-[node name="test" type="Button" parent="."]
-margin_left = 700.0
-margin_top = 446.0
-margin_right = 950.0
-margin_bottom = 479.0
+[node name="refresh" type="Button" parent="."]
+margin_left = 859.0
+margin_top = 138.0
+margin_right = 1014.0
+margin_bottom = 174.0
 custom_fonts/font = SubResource( 83 )
-text = "test"
+text = "refresh"
 
 [node name="PopupDialog" type="PopupDialog" parent="."]
+visible = true
 margin_left = 295.0
 margin_top = 219.0
 margin_right = 710.0
@@ -1388,6 +1389,24 @@ size_flags_vertical = 6
 custom_fonts/font = SubResource( 83 )
 text = "OK"
 
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 347.0
+margin_top = 221.0
+margin_right = 657.0
+margin_bottom = 348.0
+theme = ExtResource( 16 )
+dialog_text = "ALREADY SUBMITTED RUN"
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 311.0
+margin_top = 217.0
+margin_right = 691.0
+margin_bottom = 344.0
+theme = ExtResource( 16 )
+dialog_text = "ERROR!!!! TRY AGAIN LATER!"
+
 [connection signal="pressed" from="backButton" to="." method="_on_backButton_pressed"]
 [connection signal="pressed" from="backButton2" to="." method="_on_backButton2_pressed"]
 [connection signal="pressed" from="HeaderContainer/TimeContainer/time" to="." method="_on_time_pressed"]
@@ -1395,5 +1414,5 @@ text = "OK"
 [connection signal="pressed" from="HeaderContainer/CoinsContainer/coins" to="." method="_on_coins_pressed"]
 [connection signal="pressed" from="HeaderContainer/SheepContainer/sheep" to="." method="_on_sheep_pressed"]
 [connection signal="pressed" from="Submit run" to="." method="_on_Submit_run_pressed"]
-[connection signal="pressed" from="test" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="PopupDialog/VBoxContainer/PlayerNameButtonOk" to="." method="_on_PlayerNameButtonOk_pressed"]

@@ -113,18 +113,23 @@ func clear_leaderboard():
 
 
 func add_record():
-	if submitted:
-		$AcceptDialog.popup()
-		return
-	SilentWolf.Scores.persist_score(text_field.text,PlayerData.score,"main",metadata)
-	submitted=true
+	var score_add=yield(SilentWolf.Scores.persist_score(text_field.text,PlayerData.score,"main",metadata), "sw_score_posted")
+	if score_add:
+		submitted=true
+		update_leaderboard()
+	else:
+		$ErrorDialog.popup()
+	
 
-func _on_refresh_pressed():
-	update_leaderboard()
+
 
 
 func _on_Submit_run_pressed():
+	if submitted:
+		$AcceptDialog.popup()
+		return
 	pop_up.popup()
+	
 
 
 
@@ -170,3 +175,7 @@ func _on_sheep_pressed():
 
 
 
+
+
+func _on_refresh_pressed():
+	update_leaderboard()
