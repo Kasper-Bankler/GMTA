@@ -22,7 +22,9 @@ func _on_Give_up_pressed():
 
 
 func _on_Start_pressed():
+	
 	$hover.play(0.1)
+	PlayerData.playing=true
 	get_tree().change_scene_to(next_scene)
 
 func _on_Tutorial_pressed():

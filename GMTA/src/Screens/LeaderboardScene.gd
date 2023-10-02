@@ -53,7 +53,7 @@ var sorter=MyCustomSorter.new()
 func _ready():
 	metadata={
 		"sheep":PlayerData.sheep_deaths,
-		"time":stepify(PlayerData.run_time, 0.01),
+		"time":stepify(PlayerData.time_elapsed, 0.01),
 		"deaths":PlayerData.deaths
 	}
 	update_leaderboard()
