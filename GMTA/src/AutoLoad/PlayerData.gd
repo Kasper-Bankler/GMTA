@@ -14,7 +14,7 @@ var current_scene: PackedScene = null setget set_current_scene
 var health: = 100 setget set_health
 var time_elapsed: = 0.0
 var time: = ""
-
+var playing=false
 func _ready():
 	
   SilentWolf.configure({
@@ -27,7 +27,10 @@ func _ready():
   SilentWolf.configure_scores({
 	"open_scene_on_close": "res://scenes/MainPage.tscn"
   })
+
 func _process(delta: float) -> void:
+	if !playing:
+		return
 	time_elapsed += delta
 	time = _format_seconds(time_elapsed,true)
 

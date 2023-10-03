@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://src/Screens/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background_color.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/Button Hover Sound Effect __ Copyright Free with Download Link __ 251390.mp3" type="AudioStream" id=13]
 [ext_resource path="res://assets/player/john_idle.png" type="Texture" id=14]
 [ext_resource path="res://src/Screens/TileMap.gd" type="Script" id=15]
+[ext_resource path="res://src/Screens/JungleBgTrees.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=81]
 size = 80
@@ -980,6 +981,7 @@ texture = ExtResource( 2 )
 position = Vector2( 86.9999, 270 )
 scale = Vector2( 6.24107, 6.24107 )
 texture = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 66.0
@@ -1045,7 +1047,7 @@ position = Vector2( 730, 338 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 4
+frame = 8
 playing = true
 flip_h = true
 script = ExtResource( 11 )

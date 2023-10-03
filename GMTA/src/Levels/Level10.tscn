@@ -25,7 +25,6 @@
 [ext_resource path="res://src/Actors/Wolf.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Actors/Bird.tscn" type="PackedScene" id=24]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
@@ -1081,6 +1080,7 @@ texture = ExtResource( 4 )
 [node name="Portal2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2058, 653 )
 next_scene = ExtResource( 3 )
+last_portal_bool = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
 position = Vector2( 219, 522 )
@@ -1142,20 +1142,15 @@ damage = 100
 [node name="Wolf" parent="." instance=ExtResource( 23 )]
 position = Vector2( 849, -106 )
 speed = Vector2( 800, 1000 )
-timerTime = 20
-scaleVis = 2.0
 
 [node name="Wolf2" parent="." instance=ExtResource( 23 )]
 position = Vector2( -88, 376 )
-timerTime = 20
-scaleVis = 2.0
 
 [node name="Wolf3" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1711, 747 )
 
 [node name="Sheep2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 50, 672 )
-size = 5.0
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

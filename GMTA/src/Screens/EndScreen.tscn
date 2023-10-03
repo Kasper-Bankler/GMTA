@@ -24,10 +24,6 @@ font_data = ExtResource( 5 )
 size = 30
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 5 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 6 )
@@ -936,6 +932,10 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 36/shapes = [  ]
 36/z_index = 0
 
+[sub_resource type="DynamicFont" id=91]
+size = 100
+font_data = ExtResource( 5 )
+
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1001,17 +1001,6 @@ custom_fonts/font = SubResource( 2 )
 text = "Quit"
 script = ExtResource( 4 )
 
-[node name="Title" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -467.0
-margin_top = 79.0
-margin_right = 470.0
-margin_bottom = 124.0
-custom_fonts/font = SubResource( 3 )
-text = "Congratulations, you finished the game!"
-align = 1
-
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1038,7 +1027,7 @@ scale = Vector2( 11.6538, 11.6538 )
 z_index = 10
 frames = SubResource( 89 )
 animation = "jump"
-frame = 5
+frame = 7
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1054,6 +1043,36 @@ tile_data = PoolIntArray( 458752, 4, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0
 stream = ExtResource( 15 )
 volume_db = 10.0
 autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 20.0
+margin_right = 912.0
+margin_bottom = 188.0
+mouse_default_cursor_shape = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 91 )
+text = "not bad !"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Label2"]
+margin_left = 97.0
+margin_top = 1.0
+margin_right = 714.0
+margin_bottom = 169.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 91 )
+text = "not bad !"
+align = 1
+valign = 1
 
 [connection signal="button_up" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_PlayButton_button_up"]
 [connection signal="pressed" from="Menu/leaderboard" to="." method="_on_leaderboard_pressed"]

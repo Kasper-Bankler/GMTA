@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/MonedaD.png" type="Texture" id=2]
-[ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=7]
-size = 31
-font_data = ExtResource( 3 )
+size = 30
+font_data = ExtResource( 4 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -34,8 +34,12 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
-"speed": 8.0
+"speed": 10.0
 } ]
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 4 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -43,30 +47,30 @@ script = ExtResource( 1 )
 [node name="ScoreLabel" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -73.0
-margin_top = 29.0
-margin_right = -33.0
-margin_bottom = 60.0
-theme = ExtResource( 4 )
+margin_left = -70.0
+margin_top = 19.0
+margin_right = -30.0
+margin_bottom = 50.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ScoreLabel"]
-position = Vector2( -15, 16 )
-scale = Vector2( 2, 2 )
+position = Vector2( -16, 17 )
+scale = Vector2( 1.65625, 1.65625 )
 frames = SubResource( 6 )
-frame = 3
 
-[node name="Timer" type="Timer" parent="ScoreLabel"]
-wait_time = 2.0
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
-[node name="Label" type="Label" parent="."]
-margin_left = 434.0
-margin_top = 18.0
-margin_right = 540.0
-margin_bottom = 64.0
+[node name="timeLabel" type="Label" parent="."]
+margin_left = 470.0
+margin_top = 27.0
+margin_right = 538.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 8 )
 
 [connection signal="animation_finished" from="ScoreLabel/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="timeout" from="ScoreLabel/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
