@@ -12,11 +12,9 @@ onready var collisionShape = $CollisionShape2D
 onready var audioPlayerExplode = $AudioStreamExplode
 onready var audioPlayerNoise = $AudioStreamNoise
 
-
-
 export var this_health=7
 export var damage=30
-export var SPEED = 20
+export var vision = 1
 
 var FrontRay = Vector2(100,0)
 var FrontUpRay = Vector2(70,-50)
@@ -30,7 +28,7 @@ var goingRight = true
 var player = null
 
 func _ready():
-	_velocity.x = SPEED * dir
+	_velocity.x = 0
 
 func detection():
 	if Rray.is_colliding() and Rray.get_collider() == player:
@@ -61,12 +59,12 @@ func chase():
 		if player.global_position.x-global_position.x < 0:
 			anim.flip_h = true
 			anim.play("walk",2)
-			_velocity.x = global_position.direction_to(player.global_position).x*SPEED*3
+			_velocity.x = global_position.direction_to(player.global_position).x*speed.x*3
 			
 		elif player.global_position.x-global_position.x > 0:
 			anim.flip_h = false
 			anim.play("walk",2)
-			_velocity.x = global_position.direction_to(player.global_position).x*SPEED*3	
+			_velocity.x = global_position.direction_to(player.global_position).x*speed.x*3	
 		if (player.global_position-global_position).length() < 50:
 			PlayerData.take_damage(damage)
 			dead()
@@ -100,26 +98,26 @@ func _on_AnimatedSprite_animation_finished():
 		queue_free()
 
 func walk():
-	if !platformRay.is_colliding() and is_on_floor() or is_on_wall():
+	if (!platformRay.is_colliding() and is_on_floor()) or is_on_wall():
 		if goingRight:
 			dir = 1
 			anim.flip_h = false
-			Rray.cast_to = Vector2(100,0)
-			RUray.cast_to = Vector2(70,-50)
-			Lray.cast_to = Vector2(-50,0)
-			LUray.cast_to = Vector2(-45,-35)
+			Rray.cast_to = FrontRay * vision
+			RUray.cast_to = FrontUpRay * vision
+			Lray.cast_to = BackRay * vision
+			LUray.cast_to = BackUpRay * vision
 			platformRay.position.x = 20
-			_velocity.x = SPEED * dir
+			_velocity.x = speed.x * dir
 			anim.play("walk")
 			goingRight = false
 		elif !goingRight:
 			dir = -1
-			_velocity.x = SPEED * dir
+			_velocity.x = speed.x * dir
 			anim.flip_h = true
-			Rray.cast_to = Vector2(50,0)
-			RUray.cast_to = Vector2(45,-35)
-			Lray.cast_to = Vector2(-100,0)
-			LUray.cast_to = Vector2(-70,-50)
+			Rray.cast_to = BackRay * vision
+			RUray.cast_to = Vector2(-BackUpRay.x, BackUpRay.y) * vision
+			Lray.cast_to = FrontRay * vision
+			LUray.cast_to = Vector2(-FrontUpRay.x, BackUpRay.y) * vision
 			platformRay.position.x = -20
 			anim.play("walk")
 			goingRight = true
@@ -135,12 +133,12 @@ func _on_Timer_timeout():
 		RUray.cast_to = FrontUpRay
 		Lray.cast_to = BackRay
 		LUray.cast_to = BackUpRay
-		_velocity.x = SPEED * dir
+		_velocity.x = speed.x * dir
 		anim.play("walk")
 		goingRight = false
 	elif goingRight == false:
 		dir = -1
-		_velocity.x = SPEED * dir
+		_velocity.x = speed.x * dir
 		anim.flip_h = true
 		Rray.cast_to = BackRay
 		RUray.cast_to = Vector2(-FrontUpRay.x,FrontUpRay.y)

@@ -5,6 +5,7 @@ onready var collisionShape = $CollisionShape2D
 onready var audioPlayerDeath = $AudioStreamDeath
 onready var audioPlayerSheep = $AudioStreamSheep
 onready var audioPlayerLamp = $AudioStreamLamp
+onready var platformRay = $PlatformRayCast
 export var timerTime = 3
 export var this_health=1
 
@@ -21,12 +22,13 @@ var player = null
 var size = scale
 func _ready():
 	anim.play("walk")
-	$Timer.start(timerTime)
+	#$Timer.start(timerTime)
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	add_to_group("enemies")
 
 func _physics_process(delta):
+	walk()
 	if this_health<1:
 		dead()
 		isDead=true
@@ -60,6 +62,20 @@ func _on_AnimatedSprite_animation_finished():
 		print("free")
 		queue_free()
 
+func walk():
+	if !platformRay.is_colliding() and is_on_floor() or is_on_wall():
+		if goingRight:
+			dir = 1
+			anim.flip_h = false
+			_velocity.x = SPEED * dir
+			anim.play("walk")
+			goingRight = false
+		elif !goingRight:
+			dir = -1
+			_velocity.x = SPEED * dir
+			anim.flip_h = true
+			anim.play("walk")
+			goingRight = true
 
 
 func _on_Timer_timeout():

@@ -190,5 +190,12 @@ stream = ExtResource( 3 )
 [node name="AudioStreamLamp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
+[node name="PlatformRayCast" type="RayCast2D" parent="."]
+position = Vector2( 8, 0 )
+enabled = true
+cast_to = Vector2( 0, 15 )
+collision_mask = 9
+collide_with_areas = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
