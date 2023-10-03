@@ -26,7 +26,7 @@ var b
 
 
 var running=true
-var bullet_delay=0.5
+var bullet_delay=0.4
 var can_shoot=true
 
 
