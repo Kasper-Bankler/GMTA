@@ -1124,6 +1124,11 @@ position = Vector2( 1280, 432 )
 
 [node name="Sheep" parent="." instance=ExtResource( 7 )]
 position = Vector2( 632, 672 )
+scale = Vector2( 1, 1 )
+
+[node name="Sheep2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 746, 622 )
+scale = Vector2( 1, 1 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

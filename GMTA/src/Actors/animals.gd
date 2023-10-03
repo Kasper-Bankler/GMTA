@@ -27,8 +27,7 @@ var dir = 1
 var goingRight = true 
 var player = null
 
-func _ready():
-	_velocity.x = 0
+
 
 func detection():
 	if Rray.is_colliding() and Rray.get_collider() == player:
