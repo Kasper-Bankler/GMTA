@@ -4,7 +4,6 @@ onready var audio_player=$gunshot
 onready var animated_sprite=$AnimatedSprite
 var facing=-1
 var speed=1500
-var hit=false
 var finished_playing=false
 var hit_wall=false
 var hit=false
