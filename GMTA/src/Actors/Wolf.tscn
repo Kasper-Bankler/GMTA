@@ -86,7 +86,7 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "walk"
-frame = 3
+frame = 1
 playing = true
 
 [node name="RightRayCast" type="RayCast2D" parent="."]

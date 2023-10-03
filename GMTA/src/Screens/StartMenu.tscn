@@ -1045,11 +1045,7 @@ position = Vector2( 730, 338 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 9 )
 animation = "walk"
-<<<<<<< Updated upstream
 frame = 4
-=======
-frame = 3
->>>>>>> Stashed changes
 playing = true
 flip_h = true
 script = ExtResource( 11 )

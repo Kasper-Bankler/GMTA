@@ -1,9 +1,12 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://assets/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Snake.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background_color.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Portal2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Levels/Level01.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/tiles_spritesheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/jungle_tree1.png" type="Texture" id=9]
 [ext_resource path="res://assets/jungle_tree2.png" type="Texture" id=10]
@@ -19,6 +22,9 @@
 [ext_resource path="res://Objects/HUD.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=21]
 [ext_resource path="res://src/Actors/Bear.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/Actors/Wolf.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Actors/Sheep.tscn" type="PackedScene" id=25]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=46]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -1079,6 +1085,11 @@ points = PoolVector2Array( 0, 0, 13, 0, 13, 16, 0, 16 )
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 21 )
 
+[node name="Bear" parent="." groups=["enemies"] instance=ExtResource( 22 )]
+position = Vector2( 1000, 300 )
+scale = Vector2( 2, 2 )
+timerTime = 6
+
 [node name="HUD" parent="." instance=ExtResource( 20 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1087,8 +1098,7 @@ layer = -99
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_right = -637.0
+margin_right = -640.0
 margin_bottom = -384.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
@@ -1110,6 +1120,10 @@ position = Vector2( 373, 388 )
 [node name="Coin2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 434, 138 )
 
+[node name="Portal2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2071, 300 )
+next_scene = ExtResource( 7 )
+
 [node name="TileMapLadder" type="TileMap" parent="."]
 z_index = -1
 tile_set = SubResource( 36 )
@@ -1126,8 +1140,24 @@ format = 1
 stream = ExtResource( 19 )
 autoplay = true
 
-[node name="Bear" parent="." instance=ExtResource( 22 )]
-position = Vector2( 518, 420 )
+[node name="Snake" parent="." groups=["enemies"] instance=ExtResource( 3 )]
+position = Vector2( 1200, 300 )
+scale = Vector2( 2, 2 )
+
+[node name="Wolf" parent="." instance=ExtResource( 23 )]
+position = Vector2( 854, 290 )
+scale = Vector2( 2, 2 )
+
+[node name="Sheep" parent="." instance=ExtResource( 25 )]
+position = Vector2( 134, 52 )
+size = 2.0
+
+[node name="Sheep2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 134, 52 )
+size = 0.5
+
+[node name="Wolf2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 482, 388 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 
