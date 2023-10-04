@@ -38,10 +38,12 @@ func _physics_process(delta):
 		return
 	if not is_on_floor():
 		_velocity.y += 90 * delta
+		anim.play("idle")
 	elif !platformRay.is_colliding() or is_on_wall():
 		flip()
-	if !standing:
+	if !standing and is_on_floor():
 		walk()
+	move_and_slide(_velocity, FLOOR_NORMAL)
 	
 
 
@@ -69,7 +71,7 @@ func _on_AnimatedSprite_animation_finished():
 func walk():
 	anim.play("walk")
 	_velocity.x = SPEED * dir
-	move_and_slide(_velocity, FLOOR_NORMAL)
+	
 
 
 func _on_Timer_timeout():
