@@ -30,7 +30,7 @@ func _ready():
 	add_to_group("enemies")
 
 func _physics_process(delta):
-	walk()
+	anim.flip_h = !goingRight
 	if this_health<1:
 		dead()
 		isDead=true
@@ -38,8 +38,11 @@ func _physics_process(delta):
 		return
 	if not is_on_floor():
 		_velocity.y += 90 * delta
+	elif !platformRay.is_colliding() or is_on_wall():
+		flip()
+	if !standing:
+		walk()
 	
-	move_and_slide(_velocity, FLOOR_NORMAL)
 
 
 func dead():
@@ -64,25 +67,23 @@ func _on_AnimatedSprite_animation_finished():
 		queue_free()
 
 func walk():
-	if !platformRay.is_colliding() or is_on_wall():
-		anim.play("walk")
-		flip()
-		_velocity.x = SPEED * dir
-		anim.flip_h = goingRight
-		platformRay.position.x = 15 * dir
+	anim.play("walk")
+	_velocity.x = SPEED * dir
+	move_and_slide(_velocity, FLOOR_NORMAL)
 
 
 func _on_Timer_timeout():
+	if isDead:
+		return
 	print(timeNum)
 	rng.randomize()
 	timeNum = rng.randi_range(5,15)
-	if isDead:
-		return
+	
 	anim.play("idle")
+	standing=true
 	_velocity.x = 0
 	playAudio()
 	$Timer.start(timeNum)
-
 
 
 
@@ -93,18 +94,17 @@ func playAudio():
 		audioPlayerSheep.play()
 
 func flip():
+	goingRight = !goingRight
 	if goingRight:
 		dir = 1
 	else:
 		dir = -1
-	goingRight = !goingRight
+	platformRay.position.x = 15 * dir
 
 
 func neverWalkAlone():
-	anim.play("walk")
-	_velocity.x = SPEED * dir
-	anim.flip_h = goingRight
-	platformRay.position.x = 15 * dir
+	standing=false
+	walk()
 
 func _on_AudioStreamSheep_finished():
 	neverWalkAlone()
