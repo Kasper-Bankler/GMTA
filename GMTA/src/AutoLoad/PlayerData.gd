@@ -15,8 +15,10 @@ var health: = 100 setget set_health
 var time_elapsed: = 0.0
 var time: = ""
 var playing=false
+var portal_entered = false
+
+
 func _ready():
-	
   SilentWolf.configure({
 	"api_key": "MB0UzF9f4Qa0TSfee7RXF4jhG2FS0FIY4tyawrGk",
 	"game_id": "GMTA",
@@ -73,5 +75,5 @@ func set_health(value: int) -> void:
 	emit_signal("health_updated")
 
 func take_damage(damage):
-	health -= damage
-
+	if !portal_entered:
+		health -= damage

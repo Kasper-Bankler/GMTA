@@ -104,15 +104,14 @@ tracks/1/keys = {
 }
 
 [node name="Portal2D" type="Area2D"]
-collision_layer = 0
-monitorable = false
+collision_layer = 32
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 9.53674e-07, -127 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 12 )
-frame = 2
+frame = 5
 playing = true
 flip_h = true
 

@@ -63,6 +63,7 @@ func get_enemy_position():
 
 
 func _ready():
+	PlayerData.portal_entered = false
 	rocket_label.hide()
 	crosshair.hide()
 	add_to_group("player")
@@ -221,3 +222,7 @@ func die():
 	PlayerData.health = 100
 	get_tree().change_scene_to(death_scene)
 	
+
+
+func _on_PortalChecker_area_entered(area):
+	PlayerData.portal_entered = true
