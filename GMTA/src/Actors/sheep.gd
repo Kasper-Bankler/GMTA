@@ -16,17 +16,17 @@ const SPEED = 20.0
 var standing=false
 var goingRight = true 
 var rng = RandomNumberGenerator.new()
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 
 var timeNum
 var player = null
 
 func _ready():
-	timeNum = rng.randi_range(0,10)
+	rng.randomize()
+	timeNum = rng.randi_range(5,15)
+	
 	$Timer.start(timeNum)
 	anim.play("walk")
-	player = get_tree().get_nodes_in_group("player")[0]
-	assert(player!=null)
 	add_to_group("enemies")
 
 func _physics_process(delta):
@@ -65,40 +65,50 @@ func _on_AnimatedSprite_animation_finished():
 
 func walk():
 	if !platformRay.is_colliding() or is_on_wall():
-		if goingRight:
-			dir = 1
-			anim.flip_h = false
-			_velocity.x = SPEED * dir
-			anim.play("walk")
-			goingRight = false
-			platformRay.position.x = 15
-			print("working!!!")
-		elif !goingRight:
-			dir = -1
-			_velocity.x = SPEED * dir
-			anim.flip_h = true
-			anim.play("walk")
-			goingRight = true
-			platformRay.position.x = -15
-			print("working!!!")
+		anim.play("walk")
+		flip()
+		_velocity.x = SPEED * dir
+		anim.flip_h = goingRight
+		platformRay.position.x = 15 * dir
 
 
 func _on_Timer_timeout():
+	print(timeNum)
+	rng.randomize()
+	timeNum = rng.randi_range(5,15)
 	if isDead:
 		return
- #idk man
+	anim.play("idle")
+	_velocity.x = 0
+	playAudio()
+	$Timer.start(timeNum)
+
+
+
+
+func playAudio():
 	if scale.x < 1:
-		anim.play("idle")
-		_velocity.x = 0
 		audioPlayerLamb.play()
-		
-		return
-	elif scale.x > 1:
-		anim.play("idle")
-		_velocity.x = 0
-		audioPlayerSheep.play()
-		print(timeNum)
-		$Timer.start(timeNum)
-		return
 	else:
-		walk()
+		audioPlayerSheep.play()
+
+func flip():
+	if goingRight:
+		dir = 1
+	else:
+		dir = -1
+	goingRight = !goingRight
+
+
+func neverWalkAlone():
+	anim.play("walk")
+	_velocity.x = SPEED * dir
+	anim.flip_h = goingRight
+	platformRay.position.x = 15 * dir
+
+func _on_AudioStreamSheep_finished():
+	neverWalkAlone()
+
+func _on_AudioStreamLamb_finished():
+	neverWalkAlone()
+
