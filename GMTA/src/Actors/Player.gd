@@ -15,6 +15,8 @@ onready var crosshair=$CrosshairMarker
 onready var rocket_timer=$RocketTimer
 onready var rocket_label=$Label
 onready var rocket_label_timer=$RocketLabelTimer
+onready var _animated_sprite_death=$DeathMode 
+var plPlayerExplosion := preload ("res://assets/player/PlayerExplosion.tscn")
 var rocket_shot=false
 #:= fastlåser datatypen til en bool
 var on_ladder := false
@@ -23,7 +25,8 @@ var bullet=null
 var rocket_mode=false
 var isDead=false
 var b
-
+var death_animation_looped_counter = 0
+var is_dead = false
 
 var running=true
 var bullet_delay=0.4
@@ -43,11 +46,14 @@ class MyCustomSorter:
 var sorter=MyCustomSorter.new()
 
 func rocket_label():
+	if (is_dead):
+		return
 	rocket_label.show()
 	
 	rocket_label_timer.start(2)
 
 func _on_RocketLabelTimer_timeout():
+	
 	rocket_label.hide()
 
 var enemy_arr=null
@@ -63,6 +69,8 @@ func get_enemy_position():
 
 
 func _ready():
+	
+	_animated_sprite_death.hide()
 	rocket_label.hide()
 	crosshair.hide()
 	add_to_group("player")
@@ -74,6 +82,7 @@ func _ready():
 	timer.set_wait_time(bullet_delay)
 
 func shoot():
+	
 	if rocket_mode and rocket_shot:
 		$RocketReloadSound.play()
 		rocket_label.show()
@@ -106,6 +115,8 @@ func _process(delta):
 		die()
 	
 func _physics_process(delta):
+	if (is_dead):
+		return
 	if !rocket_shot or !rocket_mode:
 		rocket_label.hide()
 	if (running):
@@ -216,8 +227,31 @@ func _on_RocketTimer_timeout():
 
 
 func die():
+	
+	if (is_dead):
+		return
+		
+	is_dead = true
+	_velocity.x = 0
+	_velocity.y = 0
+	crosshair.hide()
+	rocket_label.hide()
+	
 	PlayerData.deaths += 1
 	PlayerData.score = 0
 	PlayerData.health = 100
-	get_tree().change_scene_to(death_scene)
 	
+	_animated_sprite.hide()
+	_animated_sprite_rocket.hide()
+	_animated_sprite_death.show()
+	_animated_sprite_death.play("Death")
+	
+	
+	
+
+
+func _on_DeathMode_animation_finished() -> void:
+	death_animation_looped_counter += 1
+	position.y -= 10
+	if (death_animation_looped_counter >= 7):
+		get_tree().change_scene_to(death_scene)
