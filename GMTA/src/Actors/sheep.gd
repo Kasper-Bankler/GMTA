@@ -30,12 +30,13 @@ func _ready():
 	add_to_group("enemies")
 
 func _physics_process(delta):
+	if isDead:
+		return
 	anim.flip_h = !goingRight
 	if this_health<1:
 		dead()
 		isDead=true
-	if isDead:
-		return
+	
 	if not is_on_floor():
 		_velocity.y += 90 * delta
 		anim.play("idle")
@@ -96,6 +97,8 @@ func playAudio():
 		audioPlayerSheep.play()
 
 func flip():
+	if isDead:
+		return
 	goingRight = !goingRight
 	if goingRight:
 		dir = 1
@@ -105,6 +108,8 @@ func flip():
 
 
 func neverWalkAlone():
+	if isDead:
+		return
 	standing=false
 	walk()
 
