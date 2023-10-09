@@ -17,7 +17,6 @@ func _ready():
 
 
 func _on_Give_up_pressed():
-	
 	$hover.play(0.01)
 	get_tree().quit()
 

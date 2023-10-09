@@ -25,7 +25,9 @@ func _on_Start_pressed():
 	
 	$hover.play(0.1)
 	PlayerData.playing=true
+	PlayerData.current_scene=next_scene
 	get_tree().change_scene_to(next_scene)
+	
 
 func _on_Tutorial_pressed():
 	$hover.play(0.1)

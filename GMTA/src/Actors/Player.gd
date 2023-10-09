@@ -16,6 +16,7 @@ onready var rocket_timer=$RocketTimer
 onready var rocket_label=$Label
 onready var rocket_label_timer=$RocketLabelTimer
 onready var _animated_sprite_death=$DeathMode 
+onready var hud=$Camera2D/CanvasLayer
 var plPlayerExplosion := preload ("res://assets/player/PlayerExplosion.tscn")
 var rocket_shot=false
 #:= fastlåser datatypen til en bool
@@ -206,9 +207,9 @@ func calculate_move_velocity(
 	return out
 
 
+
 func _on_LadderChecker_body_entered(body):
 	on_ladder = true
-
 
 func _on_LadderChecker_body_exited(body):
 	on_ladder = false
@@ -216,11 +217,8 @@ func _on_LadderChecker_body_exited(body):
 func _on_CoinChecker_area_entered(area):
 	emit_signal("coinCollected")
 
-	
-
 func _on_BulletTimer_timeout():
 	can_shoot = true
-	
 
 
 func _on_RocketTimer_timeout():
@@ -228,14 +226,14 @@ func _on_RocketTimer_timeout():
 
 
 func die():
-	
+	PlayerData.playing=false
 	if (is_dead):
 		return
-		
 	is_dead = true
 	_velocity.x = 0
 	_velocity.y = 0
 	crosshair.hide()
+	hud.hide()
 	rocket_label.hide()
 	
 	PlayerData.deaths += 1

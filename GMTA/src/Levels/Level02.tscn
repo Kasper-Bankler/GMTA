@@ -22,7 +22,6 @@
 [ext_resource path="res://Objects/HUD.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=21]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
@@ -1123,7 +1122,6 @@ position = Vector2( 1240, 448 )
 
 [node name="Sheep" parent="." instance=ExtResource( 7 )]
 position = Vector2( 800, 616 )
-size = 1.5
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

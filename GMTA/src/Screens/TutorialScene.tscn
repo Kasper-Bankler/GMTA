@@ -239,6 +239,7 @@ position = Vector2( 100, 151 )
 scale = Vector2( 3.15625, 3.15625 )
 frames = SubResource( 16 )
 animation = "w"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -248,20 +249,19 @@ __meta__ = {
 position = Vector2( -12, 10 )
 frames = SubResource( 16 )
 animation = "a"
-frame = 1
 playing = true
 
 [node name="s" type="AnimatedSprite" parent="MarginContainer2/VBoxContainer2/w"]
 position = Vector2( 0, 10 )
 frames = SubResource( 16 )
 animation = "s"
+frame = 1
 playing = true
 
 [node name="d" type="AnimatedSprite" parent="MarginContainer2/VBoxContainer2/w"]
 position = Vector2( 12, 10 )
 frames = SubResource( 16 )
 animation = "d"
-frame = 1
 playing = true
 
 [node name="shift" type="AnimatedSprite" parent="MarginContainer2/VBoxContainer2"]
@@ -269,6 +269,7 @@ position = Vector2( 104, 489 )
 scale = Vector2( 3.15625, 3.15625 )
 frames = SubResource( 16 )
 animation = "shift"
+frame = 1
 playing = true
 
 [node name="enter" type="AnimatedSprite" parent="MarginContainer2/VBoxContainer2"]
@@ -276,7 +277,6 @@ position = Vector2( 103, 384 )
 scale = Vector2( 3.15625, 3.15625 )
 frames = SubResource( 16 )
 animation = "enter"
-frame = 1
 playing = true
 
 [node name="space" type="AnimatedSprite" parent="MarginContainer2/VBoxContainer2"]
@@ -284,7 +284,6 @@ position = Vector2( 105, 279 )
 scale = Vector2( 3.15625, 3.15625 )
 frames = SubResource( 16 )
 animation = "space"
-frame = 1
 playing = true
 
 [node name="backButton" type="Button" parent="."]
@@ -301,6 +300,7 @@ position = Vector2( 68, 11 )
 scale = Vector2( 4.95312, 4.95312 )
 frames = SubResource( 16 )
 animation = "back"
+frame = 1
 playing = true
 
 [node name="hover" type="AudioStreamPlayer" parent="."]
