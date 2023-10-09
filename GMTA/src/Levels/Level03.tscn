@@ -1116,7 +1116,6 @@ tile_data = PoolIntArray( 721158, 536870916, 0, 721184, 536870916, 0, 786684, 53
 position = Vector2( 784, 495 )
 speed = null
 gravity = null
-SPEED = 50
 
 [node name="Bear2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 496 )
