@@ -30,21 +30,22 @@ var player = null
 
 
 func _physics_process(delta):
-	if this_health<1:
-		dead()
-		isDead=true
 	if isDead:
 		return
-	
-	detection()
-	
+
+	if this_health < 1:
+		dead()
+		isDead = true
+
 	if isChasing and is_on_floor():
 		chase()
-	if !platformRay.is_colliding() or is_on_wall():
+	elif !platformRay.is_colliding() or is_on_wall():
 		flip()
-	if !isChasing and is_on_floor():
+	elif !isChasing and is_on_floor():
 		walk()
-	if not is_on_floor():
+		detection()
+
+	if !is_on_floor():
 		_velocity.y += 90 * delta
 	
 	
@@ -74,7 +75,7 @@ func chase():
 			anim.flip_h = false	
 		
 		_velocity.x = global_position.direction_to(player.global_position).x*speed.x*3
-		if (player.global_position-global_position).length() < 50*scale.x:
+		if (player.global_position-global_position).length() < 30*scale.x:
 			PlayerData.take_damage(damage)
 			dead()
 	else:

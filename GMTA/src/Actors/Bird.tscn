@@ -35,8 +35,9 @@
 [ext_resource path="res://assets/explosion small/frames/1_4.png" type="Texture" id=33]
 [ext_resource path="res://assets/explosion small/frames/1_2.png" type="Texture" id=34]
 [ext_resource path="res://src/Actors/bird.gd" type="Script" id=35]
-[ext_resource path="res://assets/sound/birdSounds.mp3" type="AudioStream" id=36]
+[ext_resource path="res://assets/sound/animal-sounds/birdSounds.mp3" type="AudioStream" id=36]
 [ext_resource path="res://assets/sound/explosion_small.wav" type="AudioStream" id=37]
+
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 17.5, 17 )

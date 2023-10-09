@@ -35,8 +35,9 @@
 [ext_resource path="res://assets/explosion medium/frames/1_10.png" type="Texture" id=33]
 [ext_resource path="res://assets/explosion medium/frames/1_16.png" type="Texture" id=34]
 [ext_resource path="res://src/Actors/wolf.gd" type="Script" id=35]
-[ext_resource path="res://assets/sound/wolfSounds.mp3" type="AudioStream" id=36]
+[ext_resource path="res://assets/sound/animal-sounds/wolfSounds.mp3" type="AudioStream" id=36]
 [ext_resource path="res://assets/sound/explosion_big.wav" type="AudioStream" id=37]
+
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 17.5, 16 )
