@@ -1117,6 +1117,7 @@ position = Vector2( 1240, 448 )
 
 [node name="Sheep" parent="." instance=ExtResource( 7 )]
 position = Vector2( 800, 616 )
+scale = Vector2( 1.5, 1.5 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

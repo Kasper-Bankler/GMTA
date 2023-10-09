@@ -1128,6 +1128,10 @@ tile_data = PoolIntArray( 5636099, 2, 0, 5701643, 0, 0, 6291499, 536870916, 0, 6
 position = Vector2( 1204, 360 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="Bird2" parent="TileMapObjects" instance=ExtResource( 24 )]
+position = Vector2( 721.5, -23.5 )
+scale = Vector2( 0.5, 0.5 )
+
 [node name="Bear" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1321, 660 )
 scale = Vector2( 5, 5.04044 )
@@ -1135,17 +1139,18 @@ this_health = 50
 damage = 100
 
 [node name="Wolf" parent="." instance=ExtResource( 23 )]
-position = Vector2( 849, -106 )
+position = Vector2( 1002, -602 )
 speed = Vector2( 800, 1000 )
 
 [node name="Wolf2" parent="." instance=ExtResource( 23 )]
-position = Vector2( -88, 376 )
+position = Vector2( 84, -428 )
 
 [node name="Wolf3" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1711, 747 )
 
 [node name="Sheep2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 50, 672 )
+scale = Vector2( 1.3, 1.3 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

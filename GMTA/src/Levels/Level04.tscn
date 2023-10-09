@@ -1117,7 +1117,7 @@ position = Vector2( 456, 417 )
 this_health = 4
 
 [node name="Snake3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1544, 424 )
+position = Vector2( 1403, 510 )
 
 [node name="Snake10" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1440, 544 )
@@ -1126,16 +1126,16 @@ position = Vector2( 1440, 544 )
 position = Vector2( 1328, 556 )
 
 [node name="Snake6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1595, 479 )
+position = Vector2( 1454, 565 )
 
 [node name="Snake4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1598, 410 )
+position = Vector2( 1457, 496 )
 
 [node name="Snake7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1604, 469 )
+position = Vector2( 1463, 555 )
 
 [node name="Snake5" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1618, 480 )
+position = Vector2( 1477, 566 )
 
 [node name="Snake2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 988, 393 )
@@ -1152,6 +1152,7 @@ position = Vector2( 1406, 566 )
 
 [node name="Sheep" parent="." instance=ExtResource( 19 )]
 position = Vector2( 2216, 448 )
+scale = Vector2( 1.3, 1.3 )
 
 [node name="Snake8" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1864, 488 )
