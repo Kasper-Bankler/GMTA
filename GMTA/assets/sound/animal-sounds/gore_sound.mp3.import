@@ -11,5 +11,5 @@ dest_files=[ "res://.import/gore_sound.mp3-13b6e2911a45fdee0a692ee6fec89df4.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

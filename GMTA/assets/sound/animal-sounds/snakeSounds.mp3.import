@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/snakeSounds.mp3-b15fa4cbf43421d194cc1b67ecc1dc74.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/animal-sounds/snakeSounds.mp3"
+dest_files=[ "res://.import/snakeSounds.mp3-b15fa4cbf43421d194cc1b67ecc1dc74.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

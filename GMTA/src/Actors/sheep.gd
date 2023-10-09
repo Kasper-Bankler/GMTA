@@ -4,8 +4,9 @@ onready var anim = $AnimatedSprite
 onready var collisionShape = $CollisionShape2D
 onready var audioPlayerDeath = $AudioStreamDeath
 onready var audioPlayerSheep = $AudioStreamSheep
-onready var audioPlayerLamp = $AudioStreamLamp
-export var timerTime = 3
+onready var audioPlayerLamb = $AudioStreamLamb
+onready var platformRay = $PlatformRayCast
+
 export var this_health=1
 
 var isChasing = false
@@ -15,40 +16,48 @@ const SPEED = 20.0
 var standing=false
 var goingRight = true 
 var rng = RandomNumberGenerator.new()
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 
+
+var timeNum
 var player = null
-var size = scale
+
 func _ready():
+	rng.randomize()
+	timeNum = rng.randi_range(5,15)
+	
+	$Timer.start(timeNum)
 	anim.play("walk")
-	$Timer.start(timerTime)
-	player = get_tree().get_nodes_in_group("player")[0]
-	assert(player!=null)
 	add_to_group("enemies")
 
 func _physics_process(delta):
+	anim.flip_h = !goingRight
 	if this_health<1:
 		dead()
 		isDead=true
 	if isDead:
 		return
-	elif not is_on_floor():
+	if not is_on_floor():
 		_velocity.y += 90 * delta
+		anim.play("idle")
+	elif !platformRay.is_colliding() or is_on_wall():
+		flip()
+	if !standing and is_on_floor():
+		walk()
 	move_and_slide(_velocity, FLOOR_NORMAL)
-
 	
+
 
 func dead():
 	if (not isDead):
 		print("death")
 		PlayerData.sheep_deaths += 1
 		audioPlayerSheep.stop()
-		audioPlayerLamp.stop()
+		audioPlayerLamb.stop()
 		audioPlayerDeath.play()
 		remove_from_group("enemies")
 		collisionShape.queue_free()
 		isDead=true
-		scale *= 5
+		scale *= 2
 		anim.play("death")
 
 func take_damage(damage):
@@ -59,33 +68,49 @@ func _on_AnimatedSprite_animation_finished():
 		print("free")
 		queue_free()
 
+func walk():
+	anim.play("walk")
+	_velocity.x = SPEED * dir
+	
 
 
 func _on_Timer_timeout():
 	if isDead:
 		return
-	var num = rng.randi_range(0,10)
-	if num <2:
-		anim.play("idle")
-		
-		_velocity.x = 0
- 
-		if scale.x < 2:
-			audioPlayerLamp.play()
-		else:
-			audioPlayerSheep.play()
-	elif goingRight:
-		dir = 1
-		anim.flip_h = false
-		_velocity.x = SPEED * dir
-		anim.play("walk")
-		goingRight = false
+	print(timeNum)
+	rng.randomize()
+	timeNum = rng.randi_range(5,15)
 	
-	elif goingRight == false:
+	anim.play("idle")
+	standing=true
+	_velocity.x = 0
+	playAudio()
+	$Timer.start(timeNum)
+
+
+
+func playAudio():
+	if scale.x < 1:
+		audioPlayerLamb.play()
+	else:
+		audioPlayerSheep.play()
+
+func flip():
+	goingRight = !goingRight
+	if goingRight:
+		dir = 1
+	else:
 		dir = -1
-		_velocity.x = SPEED * dir
-		anim.flip_h = true
-		anim.play("walk")
-		goingRight = true
-		
-	$Timer.start(timerTime)
+	platformRay.position.x = 15 * dir
+
+
+func neverWalkAlone():
+	standing=false
+	walk()
+
+func _on_AudioStreamSheep_finished():
+	neverWalkAlone()
+
+func _on_AudioStreamLamb_finished():
+	neverWalkAlone()
+

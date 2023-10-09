@@ -35,7 +35,7 @@
 [ext_resource path="res://assets/explosion medium/frames/1_10.png" type="Texture" id=33]
 [ext_resource path="res://assets/explosion medium/frames/1_16.png" type="Texture" id=34]
 [ext_resource path="res://assets/sound/explosion_medium.wav" type="AudioStream" id=35]
-[ext_resource path="res://assets/sound/snakeSounds.mp3" type="AudioStream" id=36]
+[ext_resource path="res://assets/sound/animal-sounds/snakeSounds.mp3" type="AudioStream" id=36]
 [ext_resource path="res://src/Actors/snake.gd" type="Script" id=52]
 
 [sub_resource type="RectangleShape2D" id=5]

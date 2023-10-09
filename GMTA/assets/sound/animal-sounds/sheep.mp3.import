@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sheep.mp3-cc7740480e26c477b2506a942b8ce187.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/animal-sounds/sheep.mp3"
+dest_files=[ "res://.import/sheep.mp3-cc7740480e26c477b2506a942b8ce187.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
