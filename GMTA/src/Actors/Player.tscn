@@ -437,6 +437,14 @@ collision_mask = 4
 position = Vector2( 0, 4 )
 shape = SubResource( 3 )
 
+[node name="PortalChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalChecker"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
 [node name="CrosshairMarker" type="Position2D" parent="." groups=["crosshair"]]
 scale = Vector2( 3, 3 )
 z_index = 1
@@ -495,6 +503,7 @@ animation = "Death"
 [connection signal="body_entered" from="LadderChecker" to="." method="_on_LadderChecker_body_entered"]
 [connection signal="body_exited" from="LadderChecker" to="." method="_on_LadderChecker_body_exited"]
 [connection signal="area_entered" from="CoinChecker" to="." method="_on_CoinChecker_area_entered"]
+[connection signal="area_entered" from="PortalChecker" to="." method="_on_PortalChecker_area_entered"]
 [connection signal="timeout" from="BulletTimer" to="." method="_on_BulletTimer_timeout"]
 [connection signal="timeout" from="RocketTimer" to="." method="_on_RocketTimer_timeout"]
 [connection signal="timeout" from="RocketLabelTimer" to="." method="_on_RocketLabelTimer_timeout"]

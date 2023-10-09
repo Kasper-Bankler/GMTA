@@ -71,6 +71,7 @@ func get_enemy_position():
 func _ready():
 	
 	_animated_sprite_death.hide()
+	PlayerData.portal_entered = false
 	rocket_label.hide()
 	crosshair.hide()
 	add_to_group("player")
@@ -248,10 +249,13 @@ func die():
 	
 	
 	
-
-
 func _on_DeathMode_animation_finished() -> void:
 	death_animation_looped_counter += 1
 	position.y -= 10
 	if (death_animation_looped_counter >= 7):
 		get_tree().change_scene_to(death_scene)
+
+
+func _on_PortalChecker_area_entered(area):
+	PlayerData.portal_entered = true
+
