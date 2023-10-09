@@ -32,23 +32,18 @@ var player = null
 func _physics_process(delta):
 	if isDead:
 		return
-
 	if this_health < 1:
 		dead()
 		isDead = true
-
 	if isChasing and is_on_floor():
 		chase()
-	elif !platformRay.is_colliding() or is_on_wall():
+	if !platformRay.is_colliding() or is_on_wall():
 		flip()
-	elif !isChasing and is_on_floor():
+	if !isChasing and is_on_floor():
 		walk()
 		detection()
-
 	if !is_on_floor():
 		_velocity.y += 90 * delta
-	
-	
 	move_and_slide(_velocity, FLOOR_NORMAL)
 
 
@@ -74,7 +69,7 @@ func chase():
 		elif player.global_position.x-global_position.x > 0:
 			anim.flip_h = false	
 		
-		_velocity.x = global_position.direction_to(player.global_position).x*speed.x*3
+		_velocity.x = global_position.direction_to(player.global_position).x*speed*3
 		if (player.global_position-global_position).length() < 30*scale.x:
 			PlayerData.take_damage(damage)
 			dead()
@@ -109,7 +104,7 @@ func _on_AnimatedSprite_animation_finished():
 
 func walk():
 	anim.play("walk")
-	_velocity.x = speed.x * dir
+	_velocity.x = speed * dir
 
 func flip():
 	goingRight = !goingRight
