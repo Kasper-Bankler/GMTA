@@ -1146,9 +1146,11 @@ position = Vector2( 819, 1294 )
 
 [node name="Sheep" parent="." instance=ExtResource( 20 )]
 position = Vector2( 286, 1217 )
+scale = Vector2( 0.9, 0.9 )
 
 [node name="Sheep2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 123, 605 )
+scale = Vector2( 1, 1 )
 
 [node name="Wolf" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1440, 854 )
