@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://assets/player/john_jump.png" type="Texture" id=12]
 [ext_resource path="res://assets/player/john_run.png" type="Texture" id=13]
 [ext_resource path="res://assets/Sound_Effects_-_Empty_gun_shot.mp3" type="AudioStream" id=14]
+[ext_resource path="res://assets/player/PlayerExplosion.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/player/john_dead_soul.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 28.5 )
@@ -362,6 +364,22 @@ animations = [ {
 size = 20
 font_data = ExtResource( 1 )
 
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 16 )
+region = Rect2( 26, 0, 26, 30 )
+
+[sub_resource type="SpriteFrames" id=80]
+animations = [ {
+"frames": [ SubResource( 78 ), SubResource( 79 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
+} ]
+
 [node name="Player" type="KinematicBody2D" groups=["Climber"]]
 z_index = 1
 collision_mask = 8
@@ -443,6 +461,7 @@ frames = SubResource( 40 )
 animation = "idle"
 
 [node name="RocketMode" type="AnimatedSprite" parent="."]
+position = Vector2( -3, 1 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 75 )
 animation = "run"
@@ -457,10 +476,10 @@ position = Vector2( -27, 12 )
 wait_time = 7.0
 
 [node name="Label" type="Label" parent="."]
-margin_left = -120.0
-margin_top = -77.0
-margin_right = 120.0
-margin_bottom = -53.0
+margin_left = 13.0
+margin_top = -71.0
+margin_right = 253.0
+margin_bottom = -47.0
 custom_fonts/font = SubResource( 76 )
 text = "NO ROCKETS AVAILABLE"
 
@@ -470,6 +489,16 @@ text = "NO ROCKETS AVAILABLE"
 stream = ExtResource( 14 )
 volume_db = 24.0
 
+[node name="PlayerExplosion" parent="." instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 10, 8 )
+
+[node name="DeathMode" type="AnimatedSprite" parent="."]
+position = Vector2( 2, -32 )
+scale = Vector2( 3.59423, 3.59423 )
+frames = SubResource( 80 )
+animation = "Death"
+
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="body_entered" from="LadderChecker" to="." method="_on_LadderChecker_body_entered"]
 [connection signal="body_exited" from="LadderChecker" to="." method="_on_LadderChecker_body_exited"]
@@ -478,3 +507,4 @@ volume_db = 24.0
 [connection signal="timeout" from="BulletTimer" to="." method="_on_BulletTimer_timeout"]
 [connection signal="timeout" from="RocketTimer" to="." method="_on_RocketTimer_timeout"]
 [connection signal="timeout" from="RocketLabelTimer" to="." method="_on_RocketLabelTimer_timeout"]
+[connection signal="animation_finished" from="DeathMode" to="." method="_on_DeathMode_animation_finished"]
