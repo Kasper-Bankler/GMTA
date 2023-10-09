@@ -14,6 +14,8 @@ func _ready():
 
 func _process(delta):
 	time_stamp.text=str(stepify(PlayerData.time_elapsed, 0.01))
+	if !PlayerData.playing:
+		hide()
 
 func _on_AnimatedSprite_animation_finished():
 	count+=1

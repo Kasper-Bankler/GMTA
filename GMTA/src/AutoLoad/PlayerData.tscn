@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/AutoLoad/PlayerData.gd" type="Script" id=1]
-[ext_resource path="res://assets/Sad_Violin_-_Sound_Effect_HD.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/Mice On Venus but make it E X T R A nostalgic.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/sound/One_Two_ExterminateMP3.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/sound/Jeremy_Blake_-_Powerup_NO_COPYRIGHT_8-bit_Music.mp3" type="AudioStream" id=4]
 
@@ -12,8 +12,9 @@ script = ExtResource( 1 )
 stream = ExtResource( 3 )
 autoplay = true
 
-[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-
 [node name="DeathMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0

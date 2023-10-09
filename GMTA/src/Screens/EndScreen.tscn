@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://assets/background_color.png" type="Texture" id=1]
 [ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://assets/jungle_paralax_bg2.png" type="Texture" id=12]
 [ext_resource path="res://assets/jungle_paralax_bg1.png" type="Texture" id=13]
 [ext_resource path="res://assets/jungle_bg_trees.png" type="Texture" id=14]
-[ext_resource path="res://assets/sound/Jeremy_Blake_-_Powerup_NO_COPYRIGHT_8-bit_Music.mp3" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -1027,7 +1026,7 @@ scale = Vector2( 11.6538, 11.6538 )
 z_index = 10
 frames = SubResource( 89 )
 animation = "jump"
-frame = 7
+frame = 5
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1038,11 +1037,6 @@ collision_layer = 8
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 458752, 4, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
-volume_db = 10.0
-autoplay = true
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 104.0

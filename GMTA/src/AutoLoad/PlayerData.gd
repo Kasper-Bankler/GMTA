@@ -56,7 +56,7 @@ func reset() -> void:
 	score = 0
 	deaths = 0
 	sheep_deaths = 0
-	health = 0
+	health = 100
 	time_elapsed = 0
 
 
@@ -78,19 +78,16 @@ func stop_all_music():
 		music.stop()
 func set_current_scene(value: PackedScene) -> void:
 	var scene_name=value.instance().name
+	stop_all_music()
 	if ("Level" in scene_name):
-		if (!("Level" in current_scene.instance().name)):
-			stop_all_music()
-			background_music.play()
+		background_music.play()
 	else:
-		stop_all_music()
-		
 		if ("Death" in scene_name):
-			print("DEATH SOUNDDD")
-			death_music.play()
+			death_music.play(6)
 		if ("EndScreen" in scene_name):
 			victory_music.play()
-	current_scene = value
+	if ("Level" in scene_name):
+		current_scene = value
 	get_tree().change_scene_to(value)
 	emit_signal("current_scene_updated")
 	
