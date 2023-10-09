@@ -21,5 +21,4 @@ func teleport():
 	$PortalSound.play(1)
 	anim_player.play("fade_in")
 	yield(anim_player, "animation_finished")
-	get_tree().change_scene_to(next_scene)
-	PlayerData.current_scene = next_scene
+	PlayerData.set_current_scene(next_scene)

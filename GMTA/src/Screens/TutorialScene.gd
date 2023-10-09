@@ -18,10 +18,9 @@ func _ready():
 
 func _on_backButton_pressed():
 	$hover.play(0.1)
-	if PlayerData.current_scene:
+	if (!("Start" in PlayerData.current_scene.instance().name)):
 		get_tree().change_scene("res://src/Screens/DeathScreen.tscn")
 	else:
 		get_tree().change_scene("res://src/Screens/StartMenu.tscn")
-	
 	pass
 #	get_tree().change_scene_to("res://src/Levels/LevelTemplate.tscn")

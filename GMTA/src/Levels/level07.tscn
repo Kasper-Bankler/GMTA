@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://src/Actors/Bear.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Bird.tscn" type="PackedScene" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://src/Actors/Sheep.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/props/barrel.png" type="Texture" id=23]
-[ext_resource path="res://assets/sound/One_Two_ExterminateMP3.mp3" type="AudioStream" id=24]
 [ext_resource path="res://src/Levels/level07.gd" type="Script" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=46]
@@ -1122,10 +1121,6 @@ tile_set = SubResource( 82 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 1179699, 0, 0, 1179704, 0, 0, 1245199, 2, 0, 1507343, 4, 0, 1507360, 1, 0, 1507365, 5, 0, 1572883, 4, 0, 1572887, 4, 0, 1572894, 4, 0 )
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 24 )
-autoplay = true
 
 [node name="Bird" parent="." instance=ExtResource( 2 )]
 position = Vector2( 736, 399 )

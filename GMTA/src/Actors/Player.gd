@@ -251,7 +251,7 @@ func _on_DeathMode_animation_finished() -> void:
 	death_animation_looped_counter += 1
 	position.y -= 10
 	if (death_animation_looped_counter >= 7):
-		get_tree().change_scene_to(death_scene)
+		PlayerData.set_current_scene(death_scene)
 
 
 func _on_PortalChecker_area_entered(area):

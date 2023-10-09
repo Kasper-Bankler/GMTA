@@ -1,8 +1,7 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://src/Screens/DeathScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/john_dead.png" type="Texture" id=2]
-[ext_resource path="res://assets/Sad_Violin_-_Sound_Effect_HD.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/tile_cave_hole_1.png" type="Texture" id=4]
 [ext_resource path="res://assets/Screenshot 2023-09-21 at 10.36.29 AM.png" type="Texture" id=5]
 [ext_resource path="res://assets/tileset.png" type="Texture" id=7]
@@ -932,7 +931,6 @@ position = Vector2( 701, 343 )
 scale = Vector2( 16.8546, 16.8546 )
 frames = SubResource( 9 )
 animation = "dead"
-frame = 1
 playing = true
 flip_h = true
 
@@ -1009,10 +1007,6 @@ valign = 1
 [node name="hover" type="AudioStreamPlayer" parent="."]
 pause_mode = 1
 stream = ExtResource( 13 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
 
 [connection signal="timeout" from="AnimatedSprite/Timer" to="AnimatedSprite" method="_on_Timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/try again" to="." method="_on_try_again_pressed"]

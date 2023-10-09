@@ -28,5 +28,5 @@ func _on_Tutorial_pressed():
 func _on_try_again_pressed():
 	PlayerData.playing=true
 	$hover.play(0.1)
-	get_tree().change_scene_to(PlayerData.current_scene)
+	PlayerData.set_current_scene(PlayerData.current_scene)
 

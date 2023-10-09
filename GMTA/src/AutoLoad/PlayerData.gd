@@ -7,15 +7,21 @@ signal current_scene_updated
 signal health_updated
 signal time_updated
 
+onready var background_music=$Music
+onready var death_music=$DeathMusic
+onready var victory_music=$VictoryMusic
+onready var all_sounds=[background_music,death_music,victory_music]
 var score: = 0 setget set_score
 var deaths: = 0 setget set_deaths
 var sheep_deaths: = 0 setget set_sheep_deaths
-var current_scene: PackedScene = null setget set_current_scene
+var current_scene: PackedScene =preload("res://src/Screens/StartMenu.tscn") setget set_current_scene
 var health: = 100 setget set_health
 var time_elapsed: = 0.0
 var time: = ""
 var playing=false
 var portal_entered = false
+var scene_name
+
 
 
 func _ready():
@@ -32,6 +38,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if !playing:
+		background_music.stop()
 		return
 	time_elapsed += delta
 	time = _format_seconds(time_elapsed,true)
@@ -66,8 +73,25 @@ func set_sheep_deaths(value: int) -> void:
 	emit_signal("sheep_died")
 	
 
+func stop_all_music():
+	for music in all_sounds:
+		music.stop()
 func set_current_scene(value: PackedScene) -> void:
+	var scene_name=value.instance().name
+	if ("Level" in scene_name):
+		if (!("Level" in current_scene.instance().name)):
+			stop_all_music()
+			background_music.play()
+	else:
+		stop_all_music()
+		
+		if ("Death" in scene_name):
+			print("DEATH SOUNDDD")
+			death_music.play()
+		if ("EndScreen" in scene_name):
+			victory_music.play()
 	current_scene = value
+	get_tree().change_scene_to(value)
 	emit_signal("current_scene_updated")
 	
 func set_health(value: int) -> void:

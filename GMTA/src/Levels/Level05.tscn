@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Objects/Portal2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/jungle_tree1.png" type="Texture" id=2]
@@ -21,7 +21,6 @@
 [ext_resource path="res://src/Actors/Sheep.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/props/barrel.png" type="Texture" id=21]
-[ext_resource path="res://assets/sound/One_Two_ExterminateMP3.mp3" type="AudioStream" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=46]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -1126,10 +1125,6 @@ next_scene = ExtResource( 13 )
 [node name="Wolf" parent="Portal2D" instance=ExtResource( 14 )]
 position = Vector2( -345, 39 )
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 22 )
-autoplay = true
-
 [node name="Coin" parent="." instance=ExtResource( 20 )]
 position = Vector2( 440, 398 )
 
@@ -1144,15 +1139,12 @@ position = Vector2( 632, 420 )
 
 [node name="Wolf4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 993, 133 )
-timerTime = 2
 
 [node name="Wolf2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1429, 454 )
-timerTime = 5
 
 [node name="Wolf3" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1704, 438 )
-timerTime = 1
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

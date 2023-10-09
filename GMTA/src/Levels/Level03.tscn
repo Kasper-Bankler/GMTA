@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Objects/Portal2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/jungle_tree1.png" type="Texture" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://assets/props/barrel.png" type="Texture" id=19]
 [ext_resource path="res://assets/props/red_barrel.png" type="Texture" id=20]
 [ext_resource path="res://assets/props/bigcrate.png" type="Texture" id=21]
-[ext_resource path="res://assets/sound/One_Two_ExterminateMP3.mp3" type="AudioStream" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -1112,10 +1111,6 @@ tile_set = SubResource( 45 )
 cell_size = Vector2( 4, 4 )
 format = 1
 tile_data = PoolIntArray( 721158, 536870916, 0, 721184, 536870916, 0, 786684, 536870916, 0, 786704, 536870916, 0, 3014810, 536870916, 0, 3014835, 536870916, 0, 3014849, 536870916, 0, 3604634, 1610612740, 0, 4063338, 536870916, 0, 4063357, 536870916, 0, 4194387, 536870916, 0, 5505069, 536870916, 0, 5636101, 536870916, 0, 5636119, 536870916, 0 )
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 22 )
-autoplay = true
 
 [node name="Bear" parent="." instance=ExtResource( 3 )]
 position = Vector2( 784, 495 )
