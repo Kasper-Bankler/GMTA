@@ -6,4 +6,7 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	assert(player!=null)
 	.add_to_group("enemies")
-	this_health=3
+	if PlayerData.baby_mode:
+		this_health=1
+	else:
+		this_health=3

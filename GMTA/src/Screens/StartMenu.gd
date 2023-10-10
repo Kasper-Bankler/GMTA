@@ -31,3 +31,7 @@ func _on_Start_pressed():
 func _on_Tutorial_pressed():
 	$hover.play(0.1)
 	get_tree().change_scene_to(preload("res://src/Screens/TutorialScene.tscn"))
+
+
+func _on_CheckButton_toggled(button_pressed):
+	PlayerData.baby_mode=button_pressed

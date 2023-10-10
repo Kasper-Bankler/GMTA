@@ -17,7 +17,8 @@ onready var death_container=$ScrollContainer/HBoxContainer2/death
 onready var coins_container=$ScrollContainer/HBoxContainer2/coins
 onready var sheep_container=$ScrollContainer/HBoxContainer2/sheep
 onready var scores_container=$ScrollContainer/HBoxContainer2
-
+onready var baby_mode_button=$BabyMode
+onready var submit_button=$"Submit run"
 onready var copied_label=$ScrollContainer/HBoxContainer2/time/Label.duplicate()
 onready var copied_player_label=$ScrollContainer/HBoxContainer2/player_name/Label.duplicate()
 var sort_by="none"
@@ -51,6 +52,12 @@ var sorter=MyCustomSorter.new()
 	
 
 func _ready():
+	if PlayerData.baby_mode:
+		submit_button.hide()
+		baby_mode_button.show()
+	else:
+		baby_mode_button.hide()
+		submit_button.show()
 	metadata={
 		"sheep":PlayerData.sheep_deaths,
 		"time":stepify(PlayerData.time_elapsed, 0.01),

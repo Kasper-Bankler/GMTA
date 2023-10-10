@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://src/Screens/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background_color.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/player/john_idle.png" type="Texture" id=14]
 [ext_resource path="res://src/Screens/TileMap.gd" type="Script" id=15]
 [ext_resource path="res://src/Screens/JungleBgTrees.gd" type="Script" id=16]
+[ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=17]
 
 [sub_resource type="DynamicFont" id=81]
 size = 80
@@ -966,6 +967,9 @@ animations = [ {
 size = 180
 font_data = ExtResource( 12 )
 
+[sub_resource type="DynamicFont" id=134]
+font_data = ExtResource( 17 )
+
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1047,7 +1051,7 @@ position = Vector2( 730, 338 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 9
+frame = 2
 playing = true
 flip_h = true
 script = ExtResource( 11 )
@@ -1094,7 +1098,18 @@ stream = ExtResource( 13 )
 stream = ExtResource( 6 )
 autoplay = true
 
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 94.0
+margin_top = 44.0
+margin_right = 287.0
+margin_bottom = 113.0
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 0
+custom_fonts/font = SubResource( 134 )
+text = "EZ BABY MODE"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Give up" to="." method="_on_Give_up_pressed"]
 [connection signal="timeout" from="AnimatedSprite/Timer" to="AnimatedSprite" method="_on_Timer_timeout"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]

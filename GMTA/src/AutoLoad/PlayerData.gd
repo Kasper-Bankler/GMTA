@@ -21,7 +21,7 @@ var time: = ""
 var playing=false
 var portal_entered = false
 var scene_name
-
+var baby_mode=false
 
 
 func _ready():
@@ -80,7 +80,7 @@ func set_current_scene(value: PackedScene) -> void:
 	var scene_name=value.instance().name
 	stop_all_music()
 	if ("Level" in scene_name):
-		background_music.play()
+		background_music.play(time_elapsed)
 	else:
 		if ("Death" in scene_name):
 			death_music.play(6)
