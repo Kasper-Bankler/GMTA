@@ -80,7 +80,7 @@ func set_current_scene(value: PackedScene) -> void:
 	var scene_name=value.instance().name
 	stop_all_music()
 	if ("Level" in scene_name):
-		background_music.play()
+		background_music.play(time_elapsed)
 	else:
 		if ("Death" in scene_name):
 			death_music.play(6)
