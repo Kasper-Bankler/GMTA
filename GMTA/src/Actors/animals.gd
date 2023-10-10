@@ -37,8 +37,9 @@ func _physics_process(delta):
 		isDead = true
 	if isChasing and is_on_floor():
 		chase()
-	if !platformRay.is_colliding() or is_on_wall():
+	elif (!platformRay.is_colliding() or is_on_wall()) and is_on_floor():
 		flip()
+		
 	if !isChasing and is_on_floor():
 		walk()
 		detection()

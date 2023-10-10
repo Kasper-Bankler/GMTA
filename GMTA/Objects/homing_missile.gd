@@ -20,6 +20,8 @@ var initial_hit=false
 var missile_target:Node
 var new_explosion_area
 var KasperMaHitPlayer=false
+var player_damage_crhstian_er_autist=false
+
 
 func _ready():
 	new_explosion_area=explosion_area.duplicate()
@@ -91,8 +93,9 @@ func _on_ExplosionArea_body_entered(body):
 		
 	if (body.is_in_group("enemies")):
 		body.take_damage(10)
-	if body==player:
+	if body==player and !player_damage_crhstian_er_autist:
 		PlayerData.take_damage(50)
+		player_damage_crhstian_er_autist=true
 
 
 func _on_KasperPlayerHitTimer_timeout():

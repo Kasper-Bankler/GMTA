@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://assets/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Objects/HUD.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=21]
+[ext_resource path="res://src/Actors/Bear.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -1125,12 +1126,16 @@ position = Vector2( 800, 616 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Tutorials" type="Label" parent="."]
-margin_left = 287.0
-margin_top = 613.0
-margin_right = 575.0
-margin_bottom = 637.0
+margin_left = 259.0
+margin_top = 581.0
+margin_right = 547.0
+margin_bottom = 605.0
 custom_fonts/font = SubResource( 80 )
-text = "Switch guns with \"shift\""
+text = "SWITCH TO ROCKET WITH  \"shift\""
+uppercase = true
+
+[node name="Bear" parent="." instance=ExtResource( 22 )]
+position = Vector2( 946, 486 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 

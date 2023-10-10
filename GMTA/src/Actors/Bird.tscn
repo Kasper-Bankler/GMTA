@@ -38,7 +38,6 @@
 [ext_resource path="res://assets/sound/animal-sounds/birdSounds.mp3" type="AudioStream" id=36]
 [ext_resource path="res://assets/sound/explosion_small.wav" type="AudioStream" id=37]
 
-
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 17.5, 17 )
 
@@ -83,6 +82,7 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="AudioStreamExplode" type="AudioStreamPlayer" parent="."]

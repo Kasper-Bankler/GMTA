@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/props/barrel.png" type="Texture" id=16]
 [ext_resource path="res://assets/props/red_barrel.png" type="Texture" id=17]
 [ext_resource path="res://assets/props/bigcrate.png" type="Texture" id=18]
+[ext_resource path="res://src/Actors/Wolf.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/HUD.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=21]
 [ext_resource path="res://assets/jungle_tree2_bg.png" type="Texture" id=22]
@@ -1191,7 +1192,8 @@ z_index = -1
 texture = ExtResource( 22 )
 
 [node name="Sheep" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1256, 784 )
+position = Vector2( 1216, 743 )
+scale = Vector2( 1.8, 1.8 )
 
 [node name="Snake" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1752, 776 )
@@ -1213,6 +1215,9 @@ position = Vector2( 720, 480 )
 
 [node name="Bird5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2360, 488 )
+
+[node name="Wolf" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1401, 709 )
 
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 
