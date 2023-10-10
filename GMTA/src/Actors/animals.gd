@@ -39,7 +39,6 @@ func _physics_process(delta):
 		chase()
 	elif (!platformRay.is_colliding() or is_on_wall()) and is_on_floor():
 		flip()
-		
 	if !isChasing and is_on_floor():
 		walk()
 		detection()

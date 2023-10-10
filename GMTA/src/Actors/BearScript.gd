@@ -9,7 +9,5 @@ func _ready():
 	.add_to_group("enemies")
 	if PlayerData.baby_mode:
 		this_health=1
-	else:
-		this_health=7
 
 

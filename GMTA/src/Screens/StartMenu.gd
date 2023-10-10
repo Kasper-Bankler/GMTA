@@ -7,7 +7,9 @@ extends Control
 export var next_scene : PackedScene
 
 
-onready var baby_sprite=$BabySprite
+onready var baby_sprite=$Tutorials/Baby
+onready var man_sprite=$Tutorials/Man
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerData.reset()
@@ -38,6 +40,8 @@ func _on_Tutorial_pressed():
 func _on_CheckButton_toggled(button_pressed):
 	PlayerData.baby_mode=button_pressed
 	if button_pressed:
-		baby_sprite.play("cry")
+		baby_sprite.show()
+		man_sprite.hide()
 	else:
-		baby_sprite.play("default")
+		man_sprite.show()
+		baby_sprite.hide()

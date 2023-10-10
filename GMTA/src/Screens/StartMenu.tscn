@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://src/Screens/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background_color.png" type="Texture" id=2]
@@ -17,8 +17,8 @@
 [ext_resource path="res://src/Screens/TileMap.gd" type="Script" id=15]
 [ext_resource path="res://src/Screens/JungleBgTrees.gd" type="Script" id=16]
 [ext_resource path="res://assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://assets/baby.png" type="Texture" id=18]
-[ext_resource path="res://assets/crybaby.png" type="Texture" id=19]
+[ext_resource path="res://assets/your mom.png" type="Texture" id=18]
+[ext_resource path="res://assets/baby.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=81]
 size = 80
@@ -969,24 +969,12 @@ animations = [ {
 size = 180
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=134]
-font_data = ExtResource( 17 )
-
-[sub_resource type="SpriteFrames" id=135]
-animations = [ {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "cry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="DynamicFont" id=136]
 size = 25
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=134]
 font_data = ExtResource( 17 )
 
 [node name="StartMenu" type="Control"]
@@ -1007,10 +995,10 @@ texture = ExtResource( 5 )
 script = ExtResource( 16 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 66.0
-margin_top = 159.0
-margin_right = 408.0
-margin_bottom = 492.0
+margin_left = 31.0
+margin_top = 169.0
+margin_right = 373.0
+margin_bottom = 502.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -1070,7 +1058,7 @@ position = Vector2( 730, 338 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 1
+frame = 4
 playing = true
 flip_h = true
 script = ExtResource( 11 )
@@ -1117,31 +1105,48 @@ stream = ExtResource( 13 )
 stream = ExtResource( 6 )
 autoplay = true
 
-[node name="CheckButton" type="CheckButton" parent="."]
-margin_left = 55.0
-margin_top = 42.0
-margin_right = 248.0
-margin_bottom = 111.0
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = 44.0
+margin_top = 448.0
+margin_right = 405.0
+margin_bottom = 543.0
+
+[node name="Tutorials" type="Label" parent="."]
+margin_left = 624.0
+margin_top = 523.0
+margin_right = 870.0
+margin_bottom = 547.0
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 136 )
+text = "EZ BABY MODE"
+uppercase = true
+
+[node name="CheckButton" type="CheckButton" parent="Tutorials"]
+margin_left = 11.0
+margin_top = -38.0
+margin_right = 204.0
+margin_bottom = 31.0
 rect_scale = Vector2( 1.5, 1.5 )
 focus_mode = 0
 custom_fonts/font = SubResource( 134 )
 
-[node name="BabySprite" type="AnimatedSprite" parent="."]
-position = Vector2( 359, 121 )
-scale = Vector2( 0.188721, 0.188721 )
-frames = SubResource( 135 )
+[node name="Man" type="Sprite" parent="Tutorials"]
+position = Vector2( 329, 48 )
+scale = Vector2( 0.105729, 0.105729 )
+texture = ExtResource( 18 )
 
-[node name="Tutorials" type="Label" parent="."]
-margin_left = 42.0
-margin_top = 77.0
-margin_right = 258.0
-margin_bottom = 104.0
-custom_fonts/font = SubResource( 136 )
-text = "EZ BABY MODE"
-uppercase = true
+[node name="Baby" type="Sprite" parent="Tutorials"]
+visible = false
+position = Vector2( 325, 55.0001 )
+scale = Vector2( 0.263249, 0.263249 )
+texture = ExtResource( 19 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Give up" to="." method="_on_Give_up_pressed"]
 [connection signal="timeout" from="AnimatedSprite/Timer" to="AnimatedSprite" method="_on_Timer_timeout"]
-[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="Tutorials/CheckButton" to="." method="_on_CheckButton_toggled"]
