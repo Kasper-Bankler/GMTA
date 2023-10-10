@@ -32,13 +32,15 @@ func _ready():
 func _physics_process(delta):
 	if isDead:
 		return
+		
 	anim.flip_h = !goingRight
 	if this_health<1:
 		dead()
 		isDead=true
 	
-	if not is_on_floor():
+	if not is_on_floor() and !isDead:
 		_velocity.y += 90 * delta
+		
 		anim.play("idle")
 	elif !platformRay.is_colliding() or is_on_wall():
 		flip()
@@ -70,6 +72,8 @@ func _on_AnimatedSprite_animation_finished():
 		queue_free()
 
 func walk():
+	if isDead:
+		return
 	anim.play("walk")
 	_velocity.x = SPEED * dir
 	
