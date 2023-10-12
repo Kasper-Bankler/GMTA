@@ -1152,6 +1152,10 @@ position = Vector2( 1711, 747 )
 position = Vector2( 50, 672 )
 scale = Vector2( 1.3, 1.3 )
 
+[node name="Sheep3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 211, 697 )
+scale = Vector2( 1.3, 1.3 )
+
 [connection signal="coinCollected" from="Player" to="." method="_on_Player_coinCollected"]
 
 [editable path="Player"]
