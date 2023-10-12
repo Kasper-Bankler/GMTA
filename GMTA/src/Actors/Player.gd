@@ -70,7 +70,6 @@ func get_enemy_position():
 
 
 func _ready():
-	
 	_animated_sprite_death.hide()
 	PlayerData.portal_entered = false
 	rocket_label.hide()
@@ -237,8 +236,7 @@ func die():
 	rocket_label.hide()
 	
 	PlayerData.deaths += 1
-	PlayerData.score = 0
-	PlayerData.health = 100
+	
 	
 	_animated_sprite.hide()
 	_animated_sprite_rocket.hide()

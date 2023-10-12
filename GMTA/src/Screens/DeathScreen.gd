@@ -27,6 +27,7 @@ func _on_Tutorial_pressed():
 
 func _on_try_again_pressed():
 	PlayerData.playing=true
+	PlayerData.health=100
 	$hover.play(0.1)
 	PlayerData.set_current_scene(PlayerData.current_scene)
 
