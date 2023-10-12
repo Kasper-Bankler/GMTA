@@ -1,6 +1,6 @@
 extends TileMap
 
-export var speed=200
+export var speed=170
 export var index=1
 # Declare member variables here. Examples:
 # var a = 2
