@@ -150,6 +150,12 @@ func _physics_process(delta):
 
 	if on_ladder:
 		_velocity.y = 0
+		if !is_on_floor():
+			speed.x=125
+		else:
+			speed.x=350
+	else:
+		speed.x=350
 	if should_climb_ladder():
 		if Input.is_action_pressed("move_up"):
 			_velocity.y = -climb_speed.y
