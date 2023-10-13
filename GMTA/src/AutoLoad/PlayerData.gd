@@ -88,6 +88,9 @@ func set_current_scene(value: PackedScene) -> void:
 			victory_music.play()
 	if ("Level" in scene_name):
 		current_scene = value
+	if ("Start" in scene_name):
+		current_scene=value
+		background_music.play()
 	get_tree().change_scene_to(value)
 	emit_signal("current_scene_updated")
 	
