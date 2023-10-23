@@ -11,8 +11,8 @@ Step into a world where science experiments have gone terribly wrong, unleashing
 # Install instructions
 If you're having trouble opening our game on your Mac, follow these quick steps:
 
-Step 1: Go to System Preferences.
-Step 2: Click on "Privacy & Security."
+Step 1: Go to System Preferences.  :-
+Step 2: Click on "Privacy & Security."  :-
 Step 3: Under the "Security" tab, if you see a message about an unidentified developer, click "Open Anyway."
 
 # Game trailer
